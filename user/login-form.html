@@ -123,7 +123,7 @@
         }
 
         /* 로그인 폼 스타일 */
-        .join-container {
+        .login-container {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -131,16 +131,16 @@
             padding: 10px; 
         }
 
-        .join-form {
+        .login-form {
             width: 600px; 
-            height: 460px;
-            padding: 30px 130px 30px 130px; 
+            height: 450px;
+            padding: 60px 130px 30px 130px; 
             border: 1px solid #ddd;
             background-color: #fff;
         }
 
-        .join-form input[type="text"],
-        .join-form input[type="password"] {
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
@@ -148,7 +148,7 @@
             border-bottom: 1px solid #ddd; /* 아래 선만 추가 */
         }
 
-        .join-form button {
+        .login-form button {
             width: 100%;
             padding: 10px;
             background-color: #3F3FFF;
@@ -158,26 +158,29 @@
             cursor: pointer;
         }
 
-        .join-form .options {
+        .login-form .options {
             display: flex;
             justify-content: space-between;
             margin-top: 10px;
         }
 
+        .login-form .options a {
+            color: #6c757d;
+            font-size: 12px;
+        }
 
-
-        .social-join {
+        .social-login {
             display: flex;
             justify-content: space-around; /* 가운데 정렬 */
             margin-top: 20px;
         }
 
-        .social-join button {
+        .social-login button {
             background-color: transparent; /* 배경색을 투명으로 설정 */
             display: inline-block; /* 인라인 블록으로 설정 */
         }
 
-        .social-join button img {
+        .social-login button img {
             width: 40px;
             height: 40px;
             display: block; /* 이미지를 블록 요소로 설정 */
@@ -192,20 +195,9 @@
             gap: 0; /* 버튼 사이의 간격을 제거 */
         }
 
-
-.inline-inputs {
-    display: flex;
-    align-items: center;
-}
-
-.inline-inputs input {
-    margin-right: 5px;
-}
-
-.input-font{
-    font-size: 12px;
-}
-
+        .input-font{
+            font-size: 12px;
+        }
 
     </style>
 </head>
@@ -253,25 +245,39 @@
 
 <br>
 
-    <!-- join form start -->
-    <div class="join-container">
-        <form class="join-form">
-            <div class="d-flex justify-content-center" style="font-weight: bold;">
-                <h4>회원가입</h4>
+    <!-- login form start -->
+    <div class="login-container">
+        <form class="login-form">
+            <div class="d-flex justify-content-center">
+                <h4 style="font-weight: 900;">로그인</h4>
             </div>
+
             <input class="input-font" type="text" placeholder="아이디(이메일)" required>
             <input class="input-font" type="password" placeholder="비밀번호" required>
-            <input class="input-font" type="password" placeholder="비밀번호 확인" required>
-            <div class="inline-inputs">
-                <input class="input-font" type="text" placeholder="생년월일" required>
-                -
-                <input type="password" placeholder="" required value="*******" disabled>
+            <br>
+        
+            <div class="remember-box">
+                <input type="checkbox" id="remember-id">
+                <label for="remember-id">아이디 저장</label>
             </div>
-            <input class="input-font" type="text" placeholder="전화번호" required>
-
             <br>
-            <br>
-            <button type="submit">가입 완료</button>
+            <button type="submit">로그인</button>
+            <div class="options">
+                <div>
+                <a href="#">아이디 찾기</a>
+                <span style="font-size: 12px;">|</span>
+                <a href="#">비밀번호 찾기</a>
+            </div>
+            <div>
+                <a href="#">회원가입</a>
+            </div>
+            </div>
+            <div class="social-login">
+                <div class="button-group">
+                    <button type="button"><img src="../images/btn_login_naver.png" alt="naver"></button>
+                    <button type="button"><img src="../images/btn_login_kakao.png" alt="kakao"></button>
+                </div>
+            </div>
         </form>
     </div>
     <!-- login form end -->
