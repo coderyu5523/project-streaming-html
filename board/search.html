@@ -229,8 +229,8 @@
     }
 
     .album-item img {
-        width: 80px; /* 이미지 크기 조정 */
-        height: 80px; /* 이미지 크기 조정 */
+        width: 150px; /* 이미지 크기 조정 */
+        height: 150px; /* 이미지 크기 조정 */
         border-radius: 10px;
     }
 
@@ -251,13 +251,22 @@
     }
 
 
-.table-album {
-    width: 650px; /* 원하는 너비로 설정 */
-}
+    .table-album-container {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* 이미지와 텍스트 사이의 간격 */
+            width: 100%;
+        }
+        .text-container {
+            width:600px;
+            display: flex;
+            flex-direction: column;
+        }
 
 
 .table-artist{
     width: 200px;
+    font-size: 14px;
 }
 
 .album-image{
@@ -265,6 +274,17 @@
     height: 150px;
     border-radius: 10px;
 }
+
+.search-title{
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.album-icon {
+            margin-right: 10px; 
+            margin-top: 5px;
+        }
+
 
 
     </style>
@@ -310,10 +330,12 @@
 </header>
 <!-- header end -->
 
-
+<br>
 
 <div class="search-results">
-    <h2>'뉴진스' 검색결과</h2>
+    <div class="d-flex justify-content-start">
+        <h2 class="search-title">'뉴진스'</h2> <h2>검색결과</h2>
+    </div>
     <div class="filter-tabs">
         <button class="active">전체</button>
         <button>곡</button>
@@ -325,20 +347,28 @@
     <div class="result-item">
         <img src="../images/search/검색 뉴진스.jpg" alt="Album Cover">
         <div class="result-info">
-            <h3>How Sweet</h3>
+            <h3 style="font-weight: 600;">How Sweet</h3>
             <p>NewJeans ></p>
             <p>How Sweet ></p>
+            <br>
+            <i class="album-icon fas fa-list icon"></i>
+            <i class="album-icon fas fa-folder-plus custom-icon"></i>
+
         </div>
     </div>
 </div>
 
+<br>
 
 <div class="search-results">
     <table class="result-table">
+
+        <h2 class="search-title">곡 ></h2>
+
         <thead>
             <tr>
                 <th><input type="checkbox"></th>
-                <th class="track-album" style="font-size: 12px;">곡/앨범</th>
+                <th style="font-size: 12px;">곡/앨범</th>
                 <th class="table-artist" style="font-size: 12px;">아티스트</th>
                 <th style="font-size: 12px;">듣기</th>
                 <th style="font-size: 12px;">재생목록</th>
@@ -347,13 +377,18 @@
             </tr>
         </thead>
 
-        <h2>곡 ></h2>
 
         <tbody>
             <tr>
                 <td><input type="checkbox"></td>
-                <td class="table-album"><img src="../images/search/검색 뉴진스.jpg" alt="Album Cover"> Bubble Gum</td>
-                <td class="table-artist" style="font-size: 14px;">NewJeans</td>
+                <td class="table-album-container">
+                    <img src="../images/search/검색 뉴진스.jpg" alt="Album Cover">
+                    <div class="text-container">
+                        <strong>Bubble Gum</strong>
+                        <p style="font-size: 12px;">How Sweet</p>
+                    </div>
+                </td>
+                <td class="table-artist">NewJeans</td>
                 <td><i class="fas fa-play play-button"></i></td>
                 <td><i class="fas fa-list icon"></i></td>
                 <td><i class="fas fa-folder-plus custom-icon"></i></td>
@@ -361,8 +396,14 @@
             </tr>
             <tr>
                 <td><input type="checkbox"></td>
-                <td class="table-album"><img src="../images/search/검색 뉴진스.jpg" alt="Album Cover"> ETA</td>
-                <td class="table-artist" style="font-size: 14px;">NewJeans</td>
+                <td class="table-album-container">
+                    <img src="../images/search/검색 뉴진스2.jpg" alt="Album Cover">
+                    <div class="text-container">
+                        <strong>ETA</strong>
+                        <p style="font-size: 12px;">NewJeans 2nd EP 'Get Up'</p>
+                    </div>
+                </td>
+                <td class="table-artist">NewJeans</td>
                 <td><i class="fas fa-play play-button"></i></td>
                 <td><i class="fas fa-list icon"></i></td>
                 <td><i class="fas fa-folder-plus custom-icon"></i></td>
@@ -370,8 +411,14 @@
             </tr>
             <tr>
                 <td><input type="checkbox"></td>
-                <td class="table-album"><img src="../images/search/검색 뉴진스.jpg" alt="Album Cover"> Super Shy</td>
-                <td class="table-artist" style="font-size: 14px;">NewJeans</td>
+                <td class="table-album-container">
+                    <img src="../images/search/검색 뉴진스2.jpg" alt="Album Cover">
+                    <div class="text-container">
+                        <strong>Super Shy</strong>
+                        <p style="font-size: 12px;">NewJeans 2nd EP 'Get Up'</p>
+                    </div>
+                </td>
+                <td class="table-artist">NewJeans</td>
                 <td><i class="fas fa-play play-button"></i></td>
                 <td><i class="fas fa-list icon"></i></td>
                 <td><i class="fas fa-folder-plus custom-icon"></i></td>
@@ -379,8 +426,14 @@
             </tr>
             <tr>
                 <td><input type="checkbox"></td>
-                <td class="table-album"><img src="../images/search/검색 뉴진스.jpg" alt="Album Cover"> New Jeans</td>
-                <td class="table-artist" style="font-size: 14px;">NewJeans</td>
+                <td class="table-album-container">
+                    <img src="../images/search/검색 뉴진스2.jpg" alt="Album Cover">
+                    <div class="text-container">
+                        <strong>New Jeans</strong>
+                        <p style="font-size: 12px;">NewJeans 2nd EP 'Get Up'</p>
+                    </div>
+                </td>
+                <td class="table-artist">NewJeans</td>
                 <td><i class="fas fa-play play-button"></i></td>
                 <td><i class="fas fa-list icon"></i></td>
                 <td><i class="fas fa-folder-plus custom-icon"></i></td>
@@ -388,8 +441,14 @@
             </tr>
             <tr>
                 <td><input type="checkbox"></td>
-                <td class="table-album"><img src="../images/search/검색 뉴진스.jpg" alt="Album Cover"> ASAP</td>
-                <td class="table-artist" style="font-size: 14px;">NewJeans</td>
+                <td class="table-album-container">
+                    <img src="../images/search/검색 뉴진스2.jpg" alt="Album Cover">
+                    <div class="text-container">
+                        <strong>ASAP</strong>
+                        <p style="font-size: 12px;">NewJeans 2nd EP 'Get Up'</p>
+                    </div>
+                </td>
+                <td class="table-artist">NewJeans</td>
                 <td><i class="fas fa-play play-button"></i></td>
                 <td><i class="fas fa-list icon"></i></td>
                 <td><i class="fas fa-folder-plus custom-icon"></i></td>
@@ -399,79 +458,105 @@
     </table>
 </div>
 
+<br>
+
 <div class="search-results">
-    <h2>앨범</h2>
+    <h2 class="search-title">앨범</h2>
     <div class="album-grid">
         <div class="album-item">
-            <img class="album-image" src="../images/search/검색 뉴진스.jpg">
+            <img class="album-image" src="../images/search/더미 앨범1.jpg">
             <div class="album-info">
-                <h3>NewJeans 'OMG'</h3>
+                <h3 style="font-weight: 600;">NewJeans 'OMG'</h3>
                 <p>NewJeans</p>
                 <p>싱글 · 국내 댄스/일렉</p>
                 <p>2023.01.02</p>
+                <div class="d-flex">
+                    <i class="fas fa-list icon"></i>
+                    <i class="fas fa-folder-plus custom-icon"></i>
+                 </div>
             </div>
         </div>
         <div class="album-item">
-            <img class="album-image" src="../images/search/검색 뉴진스.jpg">
+            <img class="album-image" src="../images/search/더미 앨범2.jpg">
             <div class="album-info">
-                <h3>NewJeans 1st EP 'New Jeans'</h3>
+                <h3 style="font-weight: 600;">NewJeans 1st EP 'New Jeans'</h3>
                 <p>NewJeans</p>
                 <p>미니 · 국내 댄스/일렉</p>
                 <p>2022.08.01</p>
-            </div>
+                <div class="d-flex">
+                    <i class="fas fa-list icon"></i>
+                    <i class="fas fa-folder-plus custom-icon"></i>
+                    </div>
+                </div>
         </div>
         <div class="album-item">
-            <img class="album-image" src="../images/search/검색 뉴진스.jpg">
+            <img class="album-image" src="../images/search/더미 앨범3.jpg">
             <div class="album-info">
-                <h3>NewJeans 2nd EP 'Get Up'</h3>
-                <p>NewJeans</p>
-                <p>미니 · 국내 댄스/일렉</p>
-                <p>2023.07.21</p>
-
-            </div>
-        </div>
-        <div class="album-item">
-            <img class="album-image" src="../images/search/검색 뉴진스.jpg">
-            <div class="album-info">
-                <h3>How Sweet</h3>
-                <p>NewJeans</p>
-                <p>싱글 · 국내 댄스/일렉</p>
-                <p>2024.05.24</p>
-
-            </div>
-        </div>
-        <div class="album-item">
-            <img class="album-image" src="../images/search/검색 뉴진스.jpg">
-            <div class="album-info">
-                <h3>NJWMX</h3>
+                <h3 style="font-weight: 600;">NJWMX</h3>
                 <p>NewJeans</p>
                 <p>미니 · 국내 댄스/일렉</p>
                 <p>2023.12.19</p>
+                <div class="d-flex">
+                    <i class="fas fa-list icon"></i>
+                    <i class="fas fa-folder-plus custom-icon"></i>
+                </div>
+            </div>
+        </div>
+        <div class="album-item">
+            <img class="album-image" src="../images/search/더미 앨범4.jpg">
+            <div class="album-info">
+                <h3 style="font-weight: 600;">NewJeans 2nd EP 'Get Up'</h3>
+                <p>NewJeans</p>
+                <p>싱글 · 국내 댄스/일렉</p>
+                <p>2024.05.24</p>
+                <div class="d-flex">
+                    <i class="fas fa-list icon"></i>
+                    <i class="fas fa-folder-plus custom-icon"></i>
+                </div>
+            </div>
+        </div>
+        <div class="album-item">
+            <img class="album-image" src="../images/search/더미 앨범5.jpg">
+            <div class="album-info">
+                <h3 style="font-weight: 600;">How Sweet</h3>
+                <p>NewJeans</p>
+                <p>미니 · 국내 댄스/일렉</p>
+                <p>2024.05.24</p>
+                <div class="d-flex">
+                <i class="album-icon fas fa-list icon"></i>
+                <i class="album-icon fas fa-folder-plus custom-icon"></i>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<br>
+
 <div class="search-results">
-    <h2>가사 ></h2>
+    <h2 class="search-title">가사 ></h2>
     <table class="result-table">
         <thead>
             <tr>
                 <th><input type="checkbox"></th>
-                <th>곡/가사</th>
-                <th>아티스트</th>
-                <th>앨범</th>
+                <th style="font-size: 12px;">곡/가사</th>
+                <th style="width: 700px;"></th>
+                <th style="font-size: 12px;">아티스트</th>
+                <th style="font-size: 12px;">앨범</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td><input type="checkbox"></td>
-                <td class="flex-container">
+                <td>
                     <img src="../images/search/검색 뉴진스.jpg" alt="Album Cover">
+                </td>
+                <td>
                     <div>
                         <strong>How Sweet</strong>
                         <p style="font-size: 10px;">All I know is now 알게 됐어 나 (I know) 그동안 맨날 Always up and down (No more) 생각 또 생각 Spinnin’ ‘round and ‘round Changing my mind 수상해서 그랬지 이런 헛소리 (No more) How it’s supposed to be ...</p>
                     </div>
+
                 </td>
                 <td>NewJeans</td>
                 <td>How Sweet</td>
@@ -479,10 +564,13 @@
                 <td><input type="checkbox"></td>
                 <td>
                     <img src="../images/search/검색 뉴진스.jpg" alt="Album Cover">
+                </td>
+                <td>
                     <div>
                         <strong>Bubble Gum</strong>
-                        <p>You just got my heart pump pumpin’ Every time that you’re here around me 노랫 소리가 또 흘러나와 yeah 오늘 오래 걸린 이유 I’m always so excited to meet you 내 향기가 널 먼저 찾아가 눈 감아도 기억나게 어디라...</p>
+                        <p style="font-size: 10px;">You just got my heart pump pumpin’ Every time that you’re here around me 노랫 소리가 또 흘러나와 yeah 오늘 오래 걸린 이유 I’m always so excited to meet you 내 향기가 널 먼저 찾아가 눈 감아도 기억나게 어디라...</p>
                     </div>
+
                 </td>
                 <td>NewJeans</td>
                 <td>How Sweet</td>
@@ -490,10 +578,12 @@
             <tr>
                 <td><input type="checkbox"></td>
                 <td>
-                    <img src="../images/search/검색 뉴진스.jpg" alt="Album Cover">
+                    <img src="../images/search/더미 앨범2.jpg" alt="Album Cover">
+                </td>
+                <td>
                     <div>
                         <strong>Hype Boy</strong>
-                        <p>(1,2,3,4) Baby, got me looking so crazy 빠져버리는 daydream Got me feeling you 너도 말해줄래 누가 내게 뭐래도 남들과는 달라 넌 Maybe you could be the one 날 믿어봐 한번 I’m not looking for just fun Mayb...</p>
+                        <p style="font-size: 10px;">(1,2,3,4) Baby, got me looking so crazy 빠져버리는 daydream Got me feeling you 너도 말해줄래 누가 내게 뭐래도 남들과는 달라 넌 Maybe you could be the one 날 믿어봐 한번 I’m not looking for just fun Mayb...</p>
                     </div>
                 </td>
                 <td>NewJeans</td>
@@ -502,11 +592,14 @@
             <tr>
                 <td><input type="checkbox"></td>
                 <td>
-                    <img src="../images/search/검색 뉴진스.jpg" alt="Album Cover">
-                    <div>
-                        <strong>ETA</strong>
-                        <p>냥비하지 마 네 시간은 은행 서둘러서 정리해 개는 real bad 받아주면 안돼 No you better trust me 답답해서 그래 저번에도 봤지만 너 없을 때 쟨 여기저기에 눈빛을 뿌리네 아주 눈부셔 Honestly 우리 사이에 He’s been t...</p>
-                    </div>
+                    <img src="../images/search/더미 앨범4.jpg" alt="Album Cover">
+                    <td>
+                        <div>
+                            <strong>ETA</strong>
+                            <p style="font-size: 10px;">냥비하지 마 네 시간은 은행 서둘러서 정리해 개는 real bad 받아주면 안돼 No you better trust me 답답해서 그래 저번에도 봤지만 너 없을 때 쟨 여기저기에 눈빛을 뿌리네 아주 눈부셔 Honestly 우리 사이에 He’s been t...</p>
+                        </div>
+    
+                    </td>
                 </td>
                 <td>NewJeans</td>
                 <td>NewJeans 2nd EP 'Get Up'</td>
@@ -514,11 +607,14 @@
             <tr>
                 <td><input type="checkbox"></td>
                 <td>
-                    <img src="../images/search/검색 뉴진스.jpg" alt="Album Cover">
+                    <img src="../images/search/더미 앨범4.jpg" alt="Album Cover">
+                </td>
+                <td>
                     <div>
                         <strong>Super Shy</strong>
-                        <p>I’m super shy, super shy But wait a minute while I Make you mine, make you mine 떨리는 지금도 You’re on my mind All the time I wanna tell you but I’m Super shy, super shy I’m super shy, super shy But ...</p>
+                        <p style="font-size: 10px;">I’m super shy, super shy But wait a minute while I Make you mine, make you mine 떨리는 지금도 You’re on my mind All the time I wanna tell you but I’m Super shy, super shy I’m super shy, super shy But ...</p>
                     </div>
+
                 </td>
                 <td>NewJeans</td>
                 <td>NewJeans 2nd EP 'Get Up'</td>
@@ -527,7 +623,7 @@
     </table>
 </div>
 
-
+<br>
 
 
 <!-- footer start-->
