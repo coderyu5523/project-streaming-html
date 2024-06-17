@@ -8,8 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     <style>
-/* 헤더 요소 */
+
         /* 헤더 요소 */
         * {
             margin: 0px;
@@ -121,38 +122,88 @@
             font-size: 20px;
         }
 
+        /* 로그인 폼 스타일 */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 200px); 
+            padding: 10px; 
+        }
 
-        .album-grid {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr); /* 5개씩 배치 */
-        gap: 20px;
-    }        
-    .album-card {
-        position: relative;
-        text-align: center;
-    }
+        .login-form {
+            width: 600px; 
+            height: 450px;
+            padding: 60px 130px 30px 130px; 
+            border: 1px solid #ddd;
+            background-color: #fff;
+        }
 
-    .album-card img {
-        width: 100%;
-        border-radius: 10px;
-    }
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none; 
+            border-bottom: 1px solid #ddd; /* 아래 선만 추가 */
+        }
 
-    .album-card .play-icon {
-        position: absolute;
-        bottom: 10px; /* 하단에서 10px 떨어진 위치 */
-        right: 10px;  /* 오른쪽에서 10px 떨어진 위치 */
-        font-size: 24px;
-        color: white;
-        background-color: rgba(0, 0, 0, 0.5);
-        border-radius: 50%;
-        padding: 10px;
-    }
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3F3FFF;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
 
-</style>
+        .login-form .options {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .login-form .options a {
+            color: #6c757d;
+            font-size: 12px;
+        }
+
+        .social-login {
+            display: flex;
+            justify-content: space-around; /* 가운데 정렬 */
+            margin-top: 20px;
+        }
+
+        .social-login button {
+            background-color: transparent; /* 배경색을 투명으로 설정 */
+            display: inline-block; /* 인라인 블록으로 설정 */
+        }
+
+        .social-login button img {
+            width: 40px;
+            height: 40px;
+            display: block; /* 이미지를 블록 요소로 설정 */
+        }
+
+        .remember-box {
+            font-size: 13px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 0; /* 버튼 사이의 간격을 제거 */
+        }
+
+        .input-font{
+            font-size: 12px;
+        }
+
+    </style>
 </head>
 <body>
-   <!-- header start -->
-   <header class="header-main">
+    <!-- header start -->
+<header class="header-main">
     <nav class="nav-header">
         <div class="logo">
             <a href="/">
@@ -192,72 +243,38 @@
 <!-- header end -->
 
 
-<div class="container mt-4">
-    <h2>오늘 발매 음악</h2>
-    <div class="album-grid">
-        <div class="album-card">
-            <img src="../images/dummy_img_1.jpg" alt="오래된 노래">
-            <div class="play-icon"><i class="fa fa-play"></i></div>
-            <h5>오래된 노래</h5>
-            <p>허각 & 임한별 & 이무진 & 이진성 & 김희재 & #안녕</p>
-        </div>
-        <div class="album-card">
-            <img src="../images/dummy_img_2.jpg" alt="엄마, 단둘이 여행 갈래? OST">
-            <div class="play-icon"><i class="fa fa-play"></i></div>
-            <h5>엄마, 단둘이 여행 갈래? OST</h5>
-            <p>Crush</p>
-        </div>
-        <div class="album-card">
-            <img src="../images/dummy_img_3.jpg" alt="Cafe In Love">
-            <div class="play-icon"><i class="fa fa-play"></i></div>
-            <h5>Café In Love (Caffeine love)</h5>
-            <p>스탠</p>
-        </div>
-        <div class="album-card">
-            <img src="../images/dummy_img_4.jpg" alt="sociavoidance">
-            <div class="play-icon"><i class="fa fa-play"></i></div>
-            <h5>sociavoidance</h5>
-            <p>시온 (Sion)</p>
-        </div>
-        <div class="album-card">
-            <img src="../images/dummy_img_5.jpg" alt="비가 오면">
-            <div class="play-icon"><i class="fa fa-play"></i></div>
-            <h5>비가 오면</h5>
-            <p>주호</p>
-        </div>
-        <div class="album-card">
-            <img src="../images/dummy_img_6.jpg" alt="이내">
-            <div class="play-icon"><i class="fa fa-play"></i></div>
-            <h5>이내</h5>
-            <p>안예은</p>
-        </div>
-        <div class="album-card">
-            <img src="../images/dummy_img_7.jpg" alt="Happy">
-            <div class="play-icon"><i class="fa fa-play"></i></div>
-            <h5>Happy</h5>
-            <p>박창민</p>
-        </div>
-        <div class="album-card">
-            <img src="../images/dummy_img_8.jpg" alt="비가 오면">
-            <div class="play-icon"><i class="fa fa-play"></i></div>
-            <h5>비가 오면</h5>
-            <p>주호</p>
-        </div>
-        <div class="album-card">
-            <img src="../images/dummy_img_9.jpg" alt="빨주노초파남보">
-            <div class="play-icon"><i class="fa fa-play"></i></div>
-            <h5>빨주노초파남보</h5>
-            <p>김시온</p>
-        </div>
-        <div class="album-card">
-            <img src="../images/dummy_img_10.jpg" alt="Glory of Life">
-            <div class="play-icon"><i class="fa fa-play"></i></div>
-            <h5>Glory of Life</h5>
-            <p>John Lee</p>
-        </div>
+    <!-- login form start -->
+    <div class="login-container">
+        <form class="login-form">
+            <input class="input-font" type="text" placeholder="아이디(이메일)" required>
+            <input class="input-font" type="password" placeholder="비밀번호" required>
+            <br>
+        
+            <div class="remember-box">
+                <input type="checkbox" id="remember-id">
+                <label for="remember-id">아이디 저장</label>
+            </div>
+            <br>
+            <button type="submit">로그인</button>
+            <div class="options">
+                <div>
+                <a href="#">아이디 찾기</a>
+                <span style="font-size: 12px;">|</span>
+                <a href="#">비밀번호 찾기</a>
+            </div>
+            <div>
+                <a href="#">회원가입</a>
+            </div>
+            </div>
+            <div class="social-login">
+                <div class="button-group">
+                    <button type="button"><img src="../images/btn_login_naver.png" alt="naver"></button>
+                    <button type="button"><img src="../images/btn_login_kakao.png" alt="kakao"></button>
+                </div>
+            </div>
+        </form>
     </div>
-</div>
-
+    <!-- login form end -->
 
 <!-- footer start-->
 <footer class="footer">
