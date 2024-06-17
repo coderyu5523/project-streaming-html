@@ -129,7 +129,7 @@
 
         .main-album{
             width: 1000px;
-            height: 2200px;
+            height: 2400px;
         }
 
         .album-grid {
@@ -144,14 +144,18 @@
 
         .album-img {
             position: relative;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .album-img img {
             width: 100%;
             border-radius: 10px;
             box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5); /* 그림자 설정 */
+            transition: all 0.3s ease;
+        }
 
+        .album-img a img:hover {
+            transform: scale(1.05);
         }
 
         .play-icon {
@@ -164,14 +168,24 @@
             border-radius: 50%;
             padding: 10px;
             cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .play-icon:hover {
+            transform: scale(1.2);
         }
         .album-font {
             font-size: 17px;
+            display: inline-block;  
+    margin-top: 0; /* 상단 마진 제거 */
+    margin-bottom: 0; /* 하단 마진 제거 */
+
         }
 
         .artist-font {
             font-size: 12px;
-            color: gray;
+            color: grey;
+    margin-top: 0; /* 상단 마진 제거 */
+    margin-bottom: 0; /* 하단 마진 제거 */  
         }
 
         .main-title {
@@ -194,7 +208,6 @@
             color: gray;
             font-weight: 900;
         }
-
 
         .image-container {
             position: relative;
@@ -221,8 +234,6 @@
             z-index: -2;
         }
 
-
-
         .genre-choice-img{
             width: 1000px;
         }
@@ -238,8 +249,6 @@
         .carousel:hover .carousel-control-next {
             opacity: 1;
         }
-
-
 
     </style>
 </head>
@@ -284,29 +293,34 @@
 </header>
 <!-- header end -->
 
-
-
-
-
 <div class="main-container mt-4">
-
     <div class="main-album">
         <div id="genreChoiceCarousel" class="carousel slide" data-bs-ride="carousel" style="cursor: pointer;">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="../images/main/메인 슬라이드 1.png" class="d-block w-100 genre-choice-img" alt="Slide 1">
+                    <a href="#">
+                        <img src="../images/main/메인 슬라이드 1.png" class="d-block w-100 genre-choice-img" alt="Slide 1">
+                    </a>
                 </div>
                 <div class="carousel-item">
-                    <img src="../images/main/메인 슬라이드 2.png" class="d-block w-100 genre-choice-img" alt="Slide 2">
+                    <a href="#">
+                        <img src="../images/main/메인 슬라이드 2.png" class="d-block w-100 genre-choice-img" alt="Slide 2">
+                    </a>
                 </div>
                 <div class="carousel-item">
-                    <img src="../images/main/메인 슬라이드 3.png" class="d-block w-100 genre-choice-img" alt="Slide 3">
+                    <a href="#">
+                        <img src="../images/main/메인 슬라이드 3.png" class="d-block w-100 genre-choice-img" alt="Slide 3">
+                    </a>
                 </div>
                 <div class="carousel-item">
-                    <img src="../images/main/메인 슬라이드 4.png" class="d-block w-100 genre-choice-img" alt="Slide 4">
+                    <a href="#">
+                        <img src="../images/main/메인 슬라이드 4.png" class="d-block w-100 genre-choice-img" alt="Slide 4">
+                    </a>
                 </div>
                 <div class="carousel-item">
-                    <img src="../images/main/메인 슬라이드 5.png" class="d-block w-100 genre-choice-img" alt="Slide 5">
+                    <a href="#">
+                        <img src="../images/main/메인 슬라이드 5.png" class="d-block w-100 genre-choice-img" alt="Slide 5">
+                    </a>
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#genreChoiceCarousel" data-bs-slide="prev">
@@ -335,88 +349,108 @@
         <div class="album-grid">
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/오래된 노래-허각 & 임한별 & 이무진 & 이진성 & 김희재.jpg" alt="오래된 노래">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/오래된 노래-허각 & 임한별 & 이무진 & 이진성 & 김희재.jpg" alt="오래된 노래">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
-                <h5 class="album-font">오래된 노래</h5>
-                <p class="artist-font">허각 & 임한별 & 이무진 & 이진성 & 김희재 & #안녕</p>
+                <a href="#"><h5 class="album-font">오래된 노래</h5></a>
+                <a href="#"><p class="artist-font">허각 & 임한별 & 이무진 & 이진성 & 김희재 & #안녕</p></a>
             </div>
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/엄마, 단둘이 여행 갈래 OST-Crush.jpg" alt="엄마, 단둘이 여행 갈래? OST">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/엄마, 단둘이 여행 갈래 OST-Crush.jpg" alt="엄마, 단둘이 여행 갈래? OST">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
-                <h5 class="album-font">엄마, 단둘이 여행 갈래? OST</h5>
-                <p class="artist-font">Crush</p>
+                <a href="#"><h5 class="album-font">엄마, 단둘이 여행 갈래</h5></a>
+                <a href="#"><p class="artist-font">Crush</p></a>
             </div>
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/Café In Love (Caffeine love)-스탠.jpg" alt="Cafe In Love">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/Café In Love (Caffeine love)-스탠.jpg" alt="Cafe In Love">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
-                <h5 class="album-font">Café In Love (Caffeine love)</h5>
-                <p class="artist-font">스탠</p>
+                <a href="#"><h5 class="album-font">Café In Love (Caffeine love)</h5></a>
+                <a href="#"><p class="artist-font">스탠</p></a>
             </div>
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/sociavoidance-시온 (Sion).jpg" alt="sociavoidance">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/sociavoidance-시온 (Sion).jpg" alt="sociavoidance">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
-                <h5 class="album-font">sociavoidance</h5>
-                <p class="artist-font">시온 (Sion)</p>
+                <a href="#"><h5 class="album-font">sociavoidance</h5></a>
+                <a href="#"><p class="artist-font">시온 (Sion)</p></a>
             </div>
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/비가 오면-주호.jpg" alt="비가 오면">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/비가 오면-주호.jpg" alt="비가 오면">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
-                <h5 class="album-font">비가 오면</h5>
-                <p class="artist-font">주호</p>
+                <a href="#"><h5 class="album-font">비가 오면</h5></a>
+                <a href="#"><p class="artist-font">주호</p></a>
             </div>
 
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/이내-안예은.jpg" alt="이내">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/이내-안예은.jpg" alt="이내">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
-                <h5 class="album-font">이내</h5>
-                <p class="artist-font">안예은</p>
+                <a href="#"><h5 class="album-font">이내</h5></a>
+                <a href="#"><p class="artist-font">안예은</p></a>
             </div>
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/Happy-박창민.jpg" alt="Happy">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/Happy-박창민.jpg" alt="Happy">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
-                <h5 class="album-font">Happy</h5>
-                <p class="artist-font">박창민</p>
+                <a href="#"><h5 class="album-font">Happy</h5></a>
+                <a href="#"><p class="artist-font">박창민</p></a>
             </div>
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/빨주노초파남보-김시온.jpg" alt="빨주노초파남보">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/빨주노초파남보-김시온.jpg" alt="빨주노초파남보">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
-                <h5 class="album-font">빨주노초파남보</h5>
-                <p class="artist-font">김시온</p>
+                <a href="#"><h5 class="album-font">빨주노초파남보</h5></a>
+                <a href="#"><p class="artist-font">김시온</p></a>
             </div>
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/사랑은 더 아름다운 것 아니었나-한올 & 새봄 (saevom).jpg" alt="사랑은 더 아름다운 것 아니었나">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/사랑은 더 아름다운 것 아니었나-한올 & 새봄 (saevom).jpg" alt="사랑은 더 아름다운 것 아니었나">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
-                <h5 class="album-font">사랑은 더 아름다운 것 아니었나</h5>
-                <p class="artist-font">한올 & 새봄 (saevom)</p>
+                <a href="#"><h5 class="album-font">사랑은 더 아름다운 것 아니었나</h5></a>
+                <a href="#"><p class="artist-font">한올 & 새봄 (saevom)</p></a>
             </div>
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/Glory of Life-John Lee.jpg" alt="Glory of Life">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/Glory of Life-John Lee.jpg" alt="Glory of Life">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
-                <h5 class="album-font">Glory of Life</h5>
-                <p class="artist-font">John Lee</p>
+                <a href="#"><h5 class="album-font">Glory of Life</h5></a>
+                <a href="#"><p class="artist-font">John Lee</p></a>
             </div>
         </div>
         <div class="main-title">
-            <h2 style="font-size: 22px; font-weight: 600;">오늘의 HOT & NEW ></h2>
+            <h2 style="font-size: 22px; font-weight: 600;">오늘의 HOT & NEW ></p></h2>
             <div class="main-title-filter">
                 <a href="#">&lt;</a>
                 <a href="#">&gt;</a>
@@ -428,38 +462,48 @@
         <div class="album-grid">
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/듣기만 해도 머리에서 계속 맴돌 거예요.jpg">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/듣기만 해도 머리에서 계속 맴돌 거예요.jpg">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
-                <h5 class="album-font">듣기만 해도 머리에서 계속 맴돌 거예요</h5>
+                <a href="#"><h5 class="album-font">듣기만 해도 머리에서 계속 맴돌 거예요</h5></a>
             </div>
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/틱톡에서 핫한 레전드 음원.jpg"">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/틱톡에서 핫한 레전드 음원.jpg">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
-                <h5 class="album-font">틱톡에서 핫한 레전드 음원🔥</h5>
+                <a href="#"><h5 class="album-font">틱톡에서 핫한 레전드 음원🔥</h5></a>
             </div>
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/아침에 눈을 뜨면 듣는 Jpop.jpg">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/아침에 눈을 뜨면 듣는 Jpop.jpg">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
-                <h5 class="album-font">아침에 눈을 뜨면 듣는 Jpop</h5>
+                <a href="#"><h5 class="album-font">아침에 눈을 뜨면 듣는 Jpop</h5></a>
             </div>
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/🥶에어컨 안틀어도 돼! 전기세 줄여주는 케이팝.jpg">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/🥶에어컨 안틀어도 돼! 전기세 줄여주는 케이팝.jpg">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
-                <h5 class="album-font">🥶에어컨 안틀어도 돼! 전기세 줄여주는 케이팝</h5>
+                <a href="#"><h5 class="album-font">🥶에어컨 안틀어도 돼! 전기세 줄여주는 케이팝</h5></a>
             </div>
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/카페에서 나올 법한 노래들☕️.jpg" alt="비가 오면">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/카페에서 나올 법한 노래들☕️.jpg" alt="비가 오면">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
-                <h5 class="album-font">카페에서 나올 법한 노래들☕️</h5>
+                <a href="#"><h5 class="album-font">카페에서 나올 법한 노래들☕️</h5></a>
             </div>
         </div>
 
@@ -476,37 +520,45 @@
         <div class="album-grid">
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/국내 인기 발라드.jpg">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/국내 인기 발라드.jpg">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
             </div>
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/국내 최신 발라드.jpg">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/국내 최신 발라드.jpg">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
             </div>
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/해외 팝 인기.jpg">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/해외 팝 인기.jpg">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
             </div>
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/국내 댄스일렉 최신.jpg">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/국내 댄스일렉 최신.jpg">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
             </div>
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/해외 힙합 인기.jpg">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/해외 힙합 인기.jpg">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
             </div>
-
         </div>
-
 
         <br>
 
@@ -520,60 +572,64 @@
         <div class="album-grid">
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/여름에 듣기 좋은 청량팝 Top 40.jfif" alt="오래된 노래">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/여름에 듣기 좋은 청량팝 Top 40.jfif" alt="오래된 노래">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
-                <h5 class="album-font">여름에 듣기 좋은 청량팝 Top 40</h5>
+                <a href="#"><h5 class="album-font">여름에 듣기 좋은 청량팝 Top 40</h5></a>
             </div>
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/올 여름은 이런 프로필 뮤직 어때요.png" alt="엄마, 단둘이 여행 갈래? OST">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/올 여름은 이런 프로필 뮤직 어때요.png" alt="엄마, 단둘이 여행 갈래? OST">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
-                <h5 class="album-font">올 여름은 이런 프로필 뮤직 어때요?</h5>
+                <a href="#"><h5 class="album-font">올 여름은 이런 프로필 뮤직 어때요?</h5></a>
             </div>
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/여름에도 발라드 감성은 꼭 필요하다구요.jfif" alt="Cafe In Love">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/여름에도 발라드 감성은 꼭 필요하다구요.jfif" alt="Cafe In Love">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
-                <h5 class="album-font">여름에도 발라드 감성은 꼭 필요하다구요</h5>
+                <a href="#"><h5 class="album-font">여름에도 발라드 감성은 꼭 필요하다구요</h5></a>
             </div>
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/첫사랑 기억 조작하는 풋풋한 인디.jfif" alt="sociavoidance">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/첫사랑 기억 조작하는 풋풋한 인디.jfif" alt="sociavoidance">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
-                <h5 class="album-font">첫사랑 기억 조작하는 풋풋한 인디</h5>
+                <a href="#"><h5 class="album-font">첫사랑 기억 조작하는 풋풋한 인디</h5></a>
             </div>
             <div class="album-card">
                 <div class="album-img">
-                    <img src="../images/main/응답하라! 2000년대 추억의 여름 노래.jpg" alt="비가 오면">
-                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                    <a href="#">
+                        <img src="../images/main/응답하라! 2000년대 추억의 여름 노래.jpg" alt="비가 오면">
+                        <div class="play-icon"><i class="fa fa-play"></i></div>
+                    </a>
                 </div>
-                <h5 class="album-font">응답하라! 2000년대 추억의 여름 노래</h5>
+                <a href="#"><h5 class="album-font">응답하라! 2000년대 추억의 여름 노래</h5></a>
             </div>
-
         </div>
 
-
         <br>
         <br>
-
 
         <div style="cursor: pointer;">
-            <img class="genre-choice-img" src="../images/main/main-genre-choice.png" alt="오래된 노래">
-            <div class="play-icon"><i class="fa fa-play"></i></div>
+            <a href="#">
+                <img class="genre-choice-img" src="../images/main/main-genre-choice.png" alt="오래된 노래">
+                <div class="play-icon"><i class="fa fa-play"></i></div>
+            </a>
         </div>
         <hr>
 
     </div>
-
 </div>
-
-
-
-
 
 <!-- footer start-->
 <footer class="footer">
@@ -617,9 +673,7 @@
             <div>
                 (주)드림어스컴퍼니 ALL RIGHTS RESERVED
             </div>
-            <div>
-                본 사이트는 Chrome 및 Microsoft Edge 브라우저에서 사용 가능합니다.
-            </div>
+
             <div class="social-icons">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
