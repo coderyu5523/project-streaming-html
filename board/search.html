@@ -128,7 +128,7 @@
 
         .main-search{
             width: 1100px;
-            height: 2000px;
+            height: 2200px;
         }
 
 
@@ -297,6 +297,50 @@
             margin-top: 5px;
         }
 
+        
+        .artist-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .artist-list {
+            display: flex;
+            justify-content: start;
+            gap: 20px;
+        }
+        .artist-box {
+            text-align: center;
+            position: relative;
+        }
+        .artist-box img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+        }
+        .play-button {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: #ffffff; /* white background */
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            color: #000000; /* black color */
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .artist-name {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+        .artist-role {
+            font-size: 14px;
+            color: grey;
+        }
+        .artist-img-container {
+            position: relative;
+            display: inline-block;
+        }
 
 
     </style>
@@ -343,7 +387,7 @@
 <!-- header end -->
 
 <br>
-<div class="main-container mt-4">
+<div class="main-container">
     <div class="main-search">
 <div class="search-results">
     <div class="d-flex justify-content-start">
@@ -545,6 +589,54 @@
 </div>
 
 <br>
+
+
+<div class="search-results">
+    <h2 class="search-title">아티스트 ></h2>
+    <div class="artist-list">
+        <div class="artist-box">
+            <div class="artist-img-container">
+                <img src="../images/search/뉴진스.jpg">
+                <button class="play-button">▶</button>
+            </div>
+            <div class="artist-name">NewJeans</div>
+            <div class="artist-role">그룹 | 여성</div>
+        </div>
+        <div class="artist-box">
+            <div class="artist-img-container">
+                <img src="../images/search/다니엘.jpg">
+                <button class="play-button">▶</button>
+            </div>
+            <div class="artist-name">다니엘(DANIELLE)</div>
+            <div class="artist-role">솔로 | 여성</div>
+        </div>
+        <div class="artist-box">
+            <div class="artist-img-container">
+                <img src="../images/search/혜인.jpg">
+                <button class="play-button">▶</button>
+            </div>
+            <div class="artist-name">혜인(HYEIN)</div>
+            <div class="artist-role">솔로 | 여성</div>
+        </div>
+        <div class="artist-box">
+            <div class="artist-img-container">
+                <img src="../images/search/민지.jpg">
+                <button class="play-button">▶</button>
+            </div>
+            <div class="artist-name">민지(MINJI)</div>
+            <div class="artist-role">솔로 | 여성</div>
+        </div>
+        <div class="artist-box">
+            <div class="artist-img-container">
+                <img src="../images/search/하니.jpg">
+                <button class="play-button">▶</button>
+            </div>
+            <div class="artist-name">하니(HANNI)</div>
+            <div class="artist-role">솔로 | 여성</div>
+        </div>
+    </div>
+</div>
+
 
 <div class="search-results">
     <h2 class="search-title">가사 ></h2>
