@@ -120,7 +120,58 @@
             font-size: 20px;
         }
 
+        .search-results {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
 
+.search-results h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-tabs button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.filter-tabs button.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.result-item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.result-item img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.result-info h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.result-info p {
+    margin: 0;
+    color: #6c757d;
+}
 
 
     </style>
@@ -168,7 +219,26 @@
 
 
 
-
+<div class="search-results">
+    <h2>'뉴진스' 검색결과</h2>
+    <div class="filter-tabs">
+        <button class="active">전체</button>
+        <button>곡</button>
+        <button>앨범</button>
+        <button>아티스트</button>
+        <button>테마리스트</button>
+        <button>오디오</button>
+        <button>가사</button>
+    </div>
+    <div class="result-item">
+        <img src="../images/search/검색 뉴진스.jpg" alt="Album Cover">
+        <div class="result-info">
+            <h3>How Sweet</h3>
+            <p>NewJeans</p>
+            <p>How Sweet</p>
+        </div>
+    </div>
+</div>
 
 
 
