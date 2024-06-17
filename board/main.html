@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        /* 헤더 요소 */
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none !important;
+            color: black;
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .header-main {
+            margin: 0 auto;
+            height: 70px;
+            background-size: 100% 100%;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 5px; /* 좌우 패딩을 줄임 */
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links, .auth-links {
+            display: flex;
+            gap: 10px; /* 메뉴 항목 사이의 간격 */
+            align-items: center;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            display: flex;
+            justify-content: start;
+            margin: 0 10px; /* 검색창과 양쪽 요소 사이의 간격 */
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 400px;
+            padding: 8px 12px 8px 40px; /* 왼쪽 패딩을 늘려 아이콘 공간 확보 */
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .search-bar .fa-search {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #000000;
+        }
+
+        /* 푸터 스타일 */
+        .footer {
+            background-color: #f8f9fa;
+            padding: 40px 0;
+            font-size: 14px;
+            color: #6c757d;
+        }
+        .footer .footer-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .footer .footer-links div {
+            flex: 1;
+        }
+        .footer .footer-links div b {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .footer .footer-links a {
+            display: block;
+            margin-bottom: 5px;
+            color: #6c757d;
+        }
+        .footer .footer-links a:hover {
+            text-decoration: underline;
+        }
+        .footer .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #dee2e6;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+        .footer .footer-bottom div {
+            margin-bottom: 5px;
+        }
+        .footer .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .footer .social-icons a {
+            color: #6c757d;
+            font-size: 20px;
+        }
+
+        /* 메인 페이지 */
+
+        .main-container{
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-album{
+            width: 1000px;
+            height: 2200px;
+        }
+
+        .album-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5개씩 배치 */
+            gap: 20px;
+        }
+        .album-card {
+            position: relative;
+            text-align: start;
+        }
+
+        .album-img {
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .album-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5); /* 그림자 설정 */
+
+        }
+
+        .play-icon {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: white;
+            background-color: transparent; /* 배경색을 투명하게 설정 */
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .album-font {
+            font-size: 17px;
+        }
+
+        .artist-font {
+            font-size: 12px;
+            color: gray;
+        }
+
+        .main-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .main-title-filter{
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .main-title a {
+            margin: 0;
+            font-size: 14px;
+            color: gray;
+            font-weight: 900;
+        }
+
+
+        .image-container {
+            position: relative;
+            width: 200px; /* 이미지 컨테이너의 너비 */
+            height: 200px; /* 이미지 컨테이너의 높이 */
+        }
+
+        .image-container img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container img:nth-child(2) {
+            transform: translate(10px, 10px);
+            z-index: -1;
+        }
+
+        .image-container img:nth-child(3) {
+            transform: translate(20px, 20px);
+            z-index: -2;
+        }
+
+
+
+        .genre-choice-img{
+            width: 1000px;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            opacity: 0;
+            transition: opacity 0.5s ease; /* 부드러운 효과를 위한 전환 설정 */
+        }
+
+        /* 마우스를 올렸을 때 화살표를 보이게 설정 */
+        .carousel:hover .carousel-control-prev,
+        .carousel:hover .carousel-control-next {
+            opacity: 1;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<!-- header start -->
+<header class="header-main">
+    <nav class="nav-header">
+        <div class="logo">
+            <a href="/">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                     width="70.5pt" height="52.5pt" viewBox="0 0 94.000000 70.000000"
+                     preserveAspectRatio="xMidYMid meet">
+                    <g transform="translate(0.000000,70.000000) scale(0.100000,-0.100000)"
+                       fill="#000000" stroke="none">
+                        <path d="M412 333 l3 -108 58 -3 c52 -3 57 -1 57 18 0 17 -6 20 -40 20 l-40 0
+                            0 90 c0 84 -1 90 -20 90 -20 0 -21 -5 -18 -107z"/>
+                        <path d="M623 433 c-31 -6 -70 -48 -77 -85 -20 -103 114 -175 189 -101 52 53
+                            37 146 -30 177 -33 16 -41 17 -82 9z m55 -39 c32 -9 55 -56 42 -88 -14 -37
+                            -52 -59 -82 -47 -56 21 -68 80 -24 118 30 25 31 25 64 17z"/>
+                        <path d="M227 423 c-4 -3 -7 -13 -7 -22 0 -13 13 -16 68 -16 59 0 67 2 70 20
+                            2 18 -4 20 -61 23 -35 1 -66 -1 -70 -5z"/>
+                        <path d="M227 343 c-4 -3 -7 -33 -7 -65 0 -51 2 -58 20 -58 17 0 20 7 20 45
+                            l0 45 48 -3 c40 -2 47 1 50 18 2 18 -4 20 -61 23 -35 1 -66 -1 -70 -5z"/>
+                    </g>
+                </svg>
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="/boards/sports" class="text-body">둘러보기</a>
+            <a href="/boards/games" class="text-body">보관함</a>
+            <a href="/boards/foods" class="text-body">이용권</a>
+        </div>
+        <div class="search-bar">
+            <i class="fa fa-search"></i>
+            <input type="text" placeholder="검색어를 입력하세요.">
+        </div>
+        <div class="auth-links">
+            <a href="/logout" class="text-body">로그인</a>
+            <a href="/join-section" class="text-body">회원가입</a>
+        </div>
+    </nav>
+</header>
+<!-- header end -->
+
+
+
+
+
+<div class="main-container mt-4">
+
+    <div class="main-album">
+        <div id="genreChoiceCarousel" class="carousel slide" data-bs-ride="carousel" style="cursor: pointer;">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../images/main/메인 슬라이드 1.png" class="d-block w-100 genre-choice-img" alt="Slide 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="../images/main/메인 슬라이드 2.png" class="d-block w-100 genre-choice-img" alt="Slide 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="../images/main/메인 슬라이드 3.png" class="d-block w-100 genre-choice-img" alt="Slide 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="../images/main/메인 슬라이드 4.png" class="d-block w-100 genre-choice-img" alt="Slide 4">
+                </div>
+                <div class="carousel-item">
+                    <img src="../images/main/메인 슬라이드 5.png" class="d-block w-100 genre-choice-img" alt="Slide 5">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#genreChoiceCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#genreChoiceCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <br>
+
+        <div class="main-title">
+            <h2 style="font-size: 22px; font-weight: 600;">오늘 발매 음악 ></h2>
+            <div class="main-title-filter">
+                <a href="#">종합</a>
+                <a href="#">국내</a>
+                <a href="#">해외</a>
+                <a href="#">&lt;</a>
+                <a href="#">&gt;</a>
+            </div>
+        </div>
+        <br>
+        <div class="album-grid">
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/오래된 노래-허각 & 임한별 & 이무진 & 이진성 & 김희재.jpg" alt="오래된 노래">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+                <h5 class="album-font">오래된 노래</h5>
+                <p class="artist-font">허각 & 임한별 & 이무진 & 이진성 & 김희재 & #안녕</p>
+            </div>
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/엄마, 단둘이 여행 갈래 OST-Crush.jpg" alt="엄마, 단둘이 여행 갈래? OST">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+                <h5 class="album-font">엄마, 단둘이 여행 갈래? OST</h5>
+                <p class="artist-font">Crush</p>
+            </div>
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/Café In Love (Caffeine love)-스탠.jpg" alt="Cafe In Love">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+                <h5 class="album-font">Café In Love (Caffeine love)</h5>
+                <p class="artist-font">스탠</p>
+            </div>
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/sociavoidance-시온 (Sion).jpg" alt="sociavoidance">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+                <h5 class="album-font">sociavoidance</h5>
+                <p class="artist-font">시온 (Sion)</p>
+            </div>
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/비가 오면-주호.jpg" alt="비가 오면">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+                <h5 class="album-font">비가 오면</h5>
+                <p class="artist-font">주호</p>
+            </div>
+
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/이내-안예은.jpg" alt="이내">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+                <h5 class="album-font">이내</h5>
+                <p class="artist-font">안예은</p>
+            </div>
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/Happy-박창민.jpg" alt="Happy">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+                <h5 class="album-font">Happy</h5>
+                <p class="artist-font">박창민</p>
+            </div>
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/빨주노초파남보-김시온.jpg" alt="빨주노초파남보">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+                <h5 class="album-font">빨주노초파남보</h5>
+                <p class="artist-font">김시온</p>
+            </div>
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/사랑은 더 아름다운 것 아니었나-한올 & 새봄 (saevom).jpg" alt="사랑은 더 아름다운 것 아니었나">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+                <h5 class="album-font">사랑은 더 아름다운 것 아니었나</h5>
+                <p class="artist-font">한올 & 새봄 (saevom)</p>
+            </div>
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/Glory of Life-John Lee.jpg" alt="Glory of Life">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+                <h5 class="album-font">Glory of Life</h5>
+                <p class="artist-font">John Lee</p>
+            </div>
+        </div>
+        <div class="main-title">
+            <h2 style="font-size: 22px; font-weight: 600;">오늘의 HOT & NEW ></h2>
+            <div class="main-title-filter">
+                <a href="#">&lt;</a>
+                <a href="#">&gt;</a>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="album-grid">
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/듣기만 해도 머리에서 계속 맴돌 거예요.jpg">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+                <h5 class="album-font">듣기만 해도 머리에서 계속 맴돌 거예요</h5>
+            </div>
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/틱톡에서 핫한 레전드 음원.jpg"">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+                <h5 class="album-font">틱톡에서 핫한 레전드 음원🔥</h5>
+            </div>
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/아침에 눈을 뜨면 듣는 Jpop.jpg">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+                <h5 class="album-font">아침에 눈을 뜨면 듣는 Jpop</h5>
+            </div>
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/🥶에어컨 안틀어도 돼! 전기세 줄여주는 케이팝.jpg">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+                <h5 class="album-font">🥶에어컨 안틀어도 돼! 전기세 줄여주는 케이팝</h5>
+            </div>
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/카페에서 나올 법한 노래들☕️.jpg" alt="비가 오면">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+                <h5 class="album-font">카페에서 나올 법한 노래들☕️</h5>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="main-title">
+            <h2 style="font-size: 22px; font-weight: 600;">장르 콜렉션</h2>
+            <div class="main-title-filter">
+                <a href="#">&lt;</a>
+                <a href="#">&gt;</a>
+            </div>
+        </div>
+        <br>
+        <div class="album-grid">
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/국내 인기 발라드.jpg">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+            </div>
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/국내 최신 발라드.jpg">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+            </div>
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/해외 팝 인기.jpg">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+            </div>
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/국내 댄스일렉 최신.jpg">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+            </div>
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/해외 힙합 인기.jpg">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <br>
+
+        <div class="main-title">
+            <h2 style="font-size: 22px; font-weight: 600;">Editor's PICK ></h2>
+            <div class="main-title-filter">
+                <a href="#">지난 테마 보기</a>
+            </div>
+        </div>
+        <br>
+        <div class="album-grid">
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/여름에 듣기 좋은 청량팝 Top 40.jfif" alt="오래된 노래">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+                <h5 class="album-font">여름에 듣기 좋은 청량팝 Top 40</h5>
+            </div>
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/올 여름은 이런 프로필 뮤직 어때요.png" alt="엄마, 단둘이 여행 갈래? OST">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+                <h5 class="album-font">올 여름은 이런 프로필 뮤직 어때요?</h5>
+            </div>
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/여름에도 발라드 감성은 꼭 필요하다구요.jfif" alt="Cafe In Love">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+                <h5 class="album-font">여름에도 발라드 감성은 꼭 필요하다구요</h5>
+            </div>
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/첫사랑 기억 조작하는 풋풋한 인디.jfif" alt="sociavoidance">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+                <h5 class="album-font">첫사랑 기억 조작하는 풋풋한 인디</h5>
+            </div>
+            <div class="album-card">
+                <div class="album-img">
+                    <img src="../images/main/응답하라! 2000년대 추억의 여름 노래.jpg" alt="비가 오면">
+                    <div class="play-icon"><i class="fa fa-play"></i></div>
+                </div>
+                <h5 class="album-font">응답하라! 2000년대 추억의 여름 노래</h5>
+            </div>
+
+        </div>
+
+
+        <br>
+        <br>
+
+
+        <div style="cursor: pointer;">
+            <img class="genre-choice-img" src="../images/main/main-genre-choice.png" alt="오래된 노래">
+            <div class="play-icon"><i class="fa fa-play"></i></div>
+        </div>
+        <hr>
+
+    </div>
+
+</div>
+
+
+
+
+
+<!-- footer start-->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-links">
+            <div>
+                <b>고객센터</b>
+                <a href="#">공지사항</a>
+            </div>
+            <div>
+                <b>FLO 서비스</b>
+                <a href="#">서비스 소개</a>
+                <a href="#">FLO 플레이어 다운로드</a>
+                <a href="#">FLO 크리에이터 스튜디오</a>
+            </div>
+            <div>
+                <b>기업 정보</b>
+                <a href="#">회사소개</a>
+                <a href="#">인재 채용</a>
+            </div>
+            <div>
+                <b>문의</b>
+                <a href="#">마케팅 · 광고 · 제휴 문의</a>
+                <a href="#">서비스 이용 문의</a>
+                <a href="#">음원 유통 문의</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>
+                <a href="#">이용약관</a> |
+                <a href="#">개인정보 처리방침</a> |
+                <a href="#">청소년 보호정책</a> |
+                <a href="#">사업자정보 확인</a>
+            </div>
+            <div>
+                대표이사: 김동훈 | 사업자 등록번호: 214-86-29288 | 통신판매업 신고번호: 2008-서울서초-1039
+            </div>
+            <div>
+                서울특별시 서초구 강남대로 311 드림플러스 15F | 1599-6034 | flo@music-flo.com
+            </div>
+            <div>
+                (주)드림어스컴퍼니 ALL RIGHTS RESERVED
+            </div>
+            <div>
+                본 사이트는 Chrome 및 Microsoft Edge 브라우저에서 사용 가능합니다.
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-xing"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer end -->
+</body>
+</html>
