@@ -17,7 +17,7 @@
             background-size: 100% 100%;
         }
 
-        .main_contents {
+        .main-contents {
             width: 100%;
             max-width: 1200px;
             display: flex;
@@ -27,13 +27,13 @@
         }
 
 
-        .badge_area {
+        .badge-area {
             display: flex;
             align-items: center;
             margin: 40px 50px 10px 25px;
         }
 
-        .badge_song_cover {
+        .badge-song-cover {
             margin-right: 20px;
         }
 
@@ -44,13 +44,13 @@
             display: block;
         }
 
-        .badge_song_detail {
+        .badge-song-detail {
             margin-top: 50px;
             display: flex;
             flex-direction: column;
         }
 
-        .badge_song_info {
+        .badge-song-info {
             position: relative;
             top: -60px;
             padding-left: 20px;
@@ -58,24 +58,24 @@
             flex-direction: column;
         }
 
-        .song_about {
+        .song-about {
             display: flex;
             flex-direction: column;
         }
 
-        .badge_song_info p {
+        .badge-song-info p {
             margin-top: 2px;
             margin-bottom: 2px;
         }
 
-        .badge_song_info .title {
+        .badge-song-info .title {
             font-size: 30px;
             font-weight: bolder;
             color: #333333;
             text-decoration: none;
         }
 
-        .song_info div b {
+        .song-info div b {
             margin-right: 30px;
         }
 
@@ -94,63 +94,35 @@
             text-decoration: none;
         }
 
-        .badge_song_info .artist,
+        .badge-song-info .artist,
         .album {
             font-weight: normal;
         }
 
-        .btn_area {
+        .icons {
             display: flex;
             margin-left: 20px;
         }
 
-        .btn_area .btn_add_like {
-            background-image: url(/images/heart-regular.svg);
-            width: 30px;
-            height: 30px;
-            overflow: hidden;
-            color: transparent;
-            text-indent: 100%;
-            white-space: nowrap;
-            vertical-align: middle;
-            border: none;
+        .icons .btn-add-like {
+            color: #000000;
+            margin-right: 10px;
+            margin-top: 5px;
         }
 
-        .btn_area .btn_add_playlist {
-            background-image: url(/images/folder-plus-solid.svg);
-            width: 30px;
-            height: 30px;
-            overflow: hidden;
-            color: transparent;
-            text-indent: 100%;
-            white-space: nowrap;
-            vertical-align: middle;
-            border: none;
+        .icons .btn-add-playlist {
+            color: #000000;
+            margin-right: 10px;
+            margin-top: 5px;
         }
 
-        .btn_area .btn_add_list {
-            background-image: url(/images/circle-plus-solid.svg);
-            width: 30px;
-            height: 30px;
-            overflow: hidden;
-            color: transparent;
-            text-indent: 100%;
-            white-space: nowrap;
-            vertical-align: middle;
-            border: none;
+        .icons .btn-add-list {
+            color: #000000;
+            margin-right: 10px;
+            margin-top: 5px;
         }
 
-        button {
-            margin: 0 5px 0 5px;
-            background-color: transparent;
-            outline: none;
-            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-            box-sizing: border-box;
-            padding: 0;
-            font-family: inherit;
-        }
-
-        .song_info {
+        .song-info {
             overflow: hidden;
             white-space: pre-line;
             padding-left: 15px;
@@ -164,36 +136,35 @@
 </head>
 
 <body>
-    <div class="main_contents">
-        <div class="badge_area">
-            <div class="badge_song_cover">
-                <img src="/images/album_cover.jpg" alt="이내 앨범 커버" class="album-cover">
+    <div class="main-contents">
+        <div class="badge-area">
+            <div class="badge-song-cover">
+                <img src="/images/album_cover.jpg" class="album-cover">
             </div>
-            <div class="badge_song_detail">
-                <div class="badge_song_info">
-                    <p class="title"><a href="https://www.music-flo.com/detail/album/424955322/albumtrack">Supernova</a>
+            <div class="badge-song-detail">
+                <div class="badge-song-info">
+                    <p class="title"><a href="#">Supernova</a>
                     </p>
                     <p class="artist">
-                        <a
-                            href="https://www.music-flo.com/detail/artist/404372458/track?sortType=POPULARITY&roleType=ALL">
+                        <a href="#">
                             aespa
                         </a>
                     </p>
                     <p class="album">
-                        <a href="https://www.music-flo.com/detail/album/424955322/albumtrack">
+                        <a href="#">
                             Armageddon - The 1st Album
                         </a>
                     </p>
                 </div>
-                <p class="btn_area">
-                    <button type="button" title="재생 목록 담기" class="btn_add_list">재생 목록 담기</button>
-                    <button type="button" title="내 리스트 담기" class="btn_add_playlist">내 리스트 담기</button>
-                    <button type="button" title="좋아요" class="btn_add_like">좋아요</button>
+                <p class="icons">
+                    <a href="#"><i class="btn-add-list fas fa-list icon"></i></a>
+                    <a href="#"><i class="btn-add-playlist fas fa-folder-plus custom-icon"></i></a>
+                    <a href="#"><i class="btn-add-like fa-regular fa-heart"></i></a>
                 </p>
             </div>
         </div>
-        <div class="song_info">
-            <div class="song_about">
+        <div class="song-info">
+            <div class="song-about">
                 <div><b>곡명</b> Supernova</div>
                 <div><b>작곡</b> Kenzie, Paris Alexa, Dwayne “Dem Jointz” Abernathy Jr.</div>
                 <div><b>작사</b> Kenzie</div>

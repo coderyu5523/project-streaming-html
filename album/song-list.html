@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        /* 헤더 요소 */
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none !important;
+            color: black;
+            padding: 0;
+            margin: 0;
+            display: block;
+        }
+
+        .header-main {
+            margin: 0 auto;
+            height: 70px;
+            background-size: 100% 100%;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 5px;
+            /* 좌우 패딩을 줄임 */
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links,
+        .auth-links {
+            display: flex;
+            gap: 10px;
+            /* 메뉴 항목 사이의 간격 */
+            align-items: center;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            display: flex;
+            justify-content: start;
+            margin: 0 10px;
+            /* 검색창과 양쪽 요소 사이의 간격 */
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 400px;
+            padding: 8px 12px 8px 40px;
+            /* 왼쪽 패딩을 늘려 아이콘 공간 확보 */
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .search-bar .fa-search {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #000000;
+        }
+
+        /* 푸터 스타일 */
+        .footer {
+            background-color: #f8f9fa;
+            padding: 40px 0;
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .footer .footer-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .footer .footer-links div {
+            flex: 1;
+        }
+
+        .footer .footer-links div b {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer .footer-links a {
+            display: block;
+            margin-bottom: 5px;
+            color: #6c757d;
+        }
+
+        .footer .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .footer .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #dee2e6;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        .footer .footer-bottom div {
+            margin-bottom: 5px;
+        }
+
+        .footer .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .footer .social-icons a {
+            color: #6c757d;
+            font-size: 20px;
+        }
+
+        /* 앨범 상세보기 수록곡 페이지  */
+        .main-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .contents {
+            width: 1100px;
+        }
+
+        .result-item {
+            display: flex;
+            gap: 20px;
+            margin-left: 36px;
+            align-items: center;
+        }
+
+        .result-item .album-cover .play-btn {
+            color: #FFFFFF;
+            font-size: 32px;
+            align-items: center;
+            position: relative;
+            top: -46px;
+            left: 200px;
+        }
+
+        .album-info {
+            margin-bottom: 10px;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .album-info .album-release-date {
+            color: #6c757d;
+        }
+
+        .result-item img {
+            width: 240px;
+            height: 240px;
+            border-radius: 6px;
+        }
+
+        .result-info h3 {
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
+
+        .result-info p {
+            font-size: 15px;
+            margin-top: 7px;
+        }
+
+        .album-info p {
+            margin: 5px 0 0;
+            font-size: 14px;
+        }
+
+        .album-info .result-i .result-info .icons {
+            display: flex;
+            flex-direction: row;
+            margin-top: 15px;
+        }
+
+        .icons a {
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        .result-item .icons {
+            display: flex;
+            flex-direction: row;
+            margin-top: 15px;
+        }
+
+        .tab-button {
+            margin-bottom: 30px;
+        }
+
+        .tab-button .album-detail {
+            font-size: 14px;
+            color: #464646;
+            font-weight: 00;
+            padding: 4px 13px 4px 13px;
+            border-radius: 17px;
+            background-color: transparent;
+            border: none;
+        }
+
+        .tab-button .album-songs {
+            font-size: 14px;
+            color: #F9FCFF;
+            font-weight: 00;
+            padding: 4px 13px 4px 13px;
+            border-radius: 17px;
+            background-color: #403FFF;
+            border: none;
+        }
+
+        .song-list .all-play {
+            font-size: 12px;
+            margin-left: 8px;
+        }
+
+        .song-list-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .song-list-table thead td {
+            color: #959ba1;
+            font-size: 12px;
+        }
+
+        .song-list-table th,
+        .song-list-table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .song-list-table th {
+            background-color: #f8f9fa;
+        }
+
+        .song-list-table img {
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+        }
+
+        .song-list-table .play-button {
+            font-size: 16px;
+            color: #007bff;
+            cursor: pointer;
+        }
+
+        .song-list-table .play-button:hover {
+            text-decoration: underline;
+        }
+
+        .song-list-table .icon {
+            font-size: 20px;
+            color: #6c757d;
+            cursor: pointer;
+        }
+
+        .song-list-table .icon:hover {
+            color: #000000;
+        }
+
+        .album-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .album-item {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .album-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .album-item img {
+            width: 150px;
+            /* 이미지 크기 조정 */
+            height: 150px;
+            /* 이미지 크기 조정 */
+            border-radius: 10px;
+        }
+
+        .album-info p {
+            margin: 5px 0 0;
+            font-size: 14px;
+        }
+
+        .album-info .album-release-date {
+            color: #6c757d;
+        }
+
+        .table-album-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* 이미지와 텍스트 사이의 간격 */
+            width: 100%;
+        }
+
+        .title-group {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .title-group .title-mark {
+            position: relative;
+            top: 2px;
+            font-size: 11px;
+            margin-right: 5px;
+            background-color: #403FFF;
+            color: #FFFFFF;
+            padding: 5px;
+            border-radius: 2px;
+            height: 14px;
+            padding-top: 0px;
+        }
+
+        .text-container .album-title {
+            color: #767b80;
+        }
+
+        .title-group .song-title {
+            font-size: 14px;
+        }
+
+        .text-container {
+            margin-top: 16px;
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .table-artist {
+            width: 200px;
+            font-size: 14px;
+        }
+
+        tr .no {
+            padding-left: 6px;
+        }
+
+        tr .play-btn {
+            padding-left: 5px;
+        }
+
+        tr .more-btn {
+            padding-left: 9px;
+        }
+
+        tr .add-playlist-btn {
+            padding-left: 12px;
+        }
+
+        tr .add-list-btn {
+            padding-left: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header start -->
+    <header class="header-main">
+        <nav class="nav-header">
+            <div class="logo">
+                <a href="/">
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="70.5pt" height="52.5pt"
+                        viewBox="0 0 94.000000 70.000000" preserveAspectRatio="xMidYMid meet">
+                        <g transform="translate(0.000000,70.000000) scale(0.100000,-0.100000)" fill="#000000"
+                            stroke="none">
+                            <path d="M412 333 l3 -108 58 -3 c52 -3 57 -1 57 18 0 17 -6 20 -40 20 l-40 0
+                            0 90 c0 84 -1 90 -20 90 -20 0 -21 -5 -18 -107z" />
+                            <path d="M623 433 c-31 -6 -70 -48 -77 -85 -20 -103 114 -175 189 -101 52 53
+                            37 146 -30 177 -33 16 -41 17 -82 9z m55 -39 c32 -9 55 -56 42 -88 -14 -37
+                            -52 -59 -82 -47 -56 21 -68 80 -24 118 30 25 31 25 64 17z" />
+                            <path d="M227 423 c-4 -3 -7 -13 -7 -22 0 -13 13 -16 68 -16 59 0 67 2 70 20
+                            2 18 -4 20 -61 23 -35 1 -66 -1 -70 -5z" />
+                            <path d="M227 343 c-4 -3 -7 -33 -7 -65 0 -51 2 -58 20 -58 17 0 20 7 20 45
+                            l0 45 48 -3 c40 -2 47 1 50 18 2 18 -4 20 -61 23 -35 1 -66 -1 -70 -5z" />
+                        </g>
+                    </svg>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="/boards/sports" class="text-body">둘러보기</a>
+                <a href="/boards/games" class="text-body">보관함</a>
+                <a href="/boards/foods" class="text-body">이용권</a>
+            </div>
+            <div class="search-bar">
+                <i class="fa fa-search"></i>
+                <input type="text" placeholder="검색어를 입력하세요.">
+            </div>
+            <div class="auth-links">
+                <a href="/logout" class="text-body">로그인</a>
+                <a href="/join-section" class="text-body">회원가입</a>
+            </div>
+        </nav>
+    </header>
+    <!-- header end -->
+
+    <br>
+    <div class="main-container">
+        <div class="contents">
+            <div class="album">
+                <br>
+                <div class="result-item">
+                    <div class="album-cover">
+                        <a href="#">
+                            <img src="/images/RIIZE_1stmini.jpg" alt="Album Cover">
+                        </a>
+                        <div>
+                            <a href="#"><i class="play-btn fas fa-play play-button"></i></a>
+                        </div>
+                    </div>
+                    <div class="result-info">
+                        <a href="#">
+                            <h3 style="font-weight: 600;">RIIZING - The 1st Mini Album</h3>
+                        </a>
+                        <a href="#">
+                            <p>RIIZE</p>
+                        </a>
+                        <div class="album-info">
+                            <p class="album-category">미니 | 댄스</p>
+                            <p class="album-release-date">2024.06.17</p>
+                        </div>
+
+                        <div class="icons">
+                            <a href="#"><i class="btn-add-list fas fa-list icon"></i></a>
+                            <a href="#"><i class="btn-add-playlist fas fa-folder-plus custom-icon"></i></a>
+                            <a href="#"><i class="btn-add-like fa-regular fa-heart"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <div class="tab-button">
+                <button class="album-detail">상세정보</button>
+                <button class="album-songs">수록곡</button>
+            </div>
+            <div class="song-list">
+                <table class="song-list-table">
+                    <a href="#" class="all-play"><i class="all-play-btn fas fa-play play-button"></i> 전체듣기</a>
+                    <thead>
+                        <tr>
+                            <td><input type="checkbox"></th>
+                            <td>번호</th>
+                            <td>곡/앨범</th>
+                            <td class="table-artist">아티스트</th>
+                            <td>듣기</th>
+                            <td>재생목록</th>
+                            <td>내 리스트</th>
+                            <td>더보기</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--타이틀 곡
+                        -->
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>
+                                <div class="no">
+                                    1
+                                </div>
+                            </td>
+                            <td class="table-album-container">
+                                <a href="#">
+                                    <img src="/images/RIIZE_1stmini.jpg" alt="Album Cover">
+                                </a>
+                                <div class="text-container">
+                                    <div class="title-group">
+                                        <div class="title-mark">TITLE</div>
+                                        <div class="song-title">
+                                            <a href="#"></a>
+                                            Boom Boom Bass
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <a href="#">
+                                        <p class="album-title" style="font-size: 12px;">RIIZING - The 1st Mini Album</p>
+                                    </a>
+                                </div>
+                            </td>
+                            <td class="table-artist">
+                                <a href="#">RIIZE</a>
+                            </td>
+                            <td>
+                                <a href="#"><i class="play-btn fas fa-play play-button"></i></a>
+                            </td>
+                            <td>
+                                <a href="#"><i class="add-playlist-btn fas fa-list icon"></i></a>
+                            </td>
+                            <td>
+                                <a href="#"><i class="add-list-btn fas fa-folder-plus custom-icon"></i></a>
+                            </td>
+                            <td>
+                                <a href="#"><i class="more-btn fas fa-ellipsis-h icon"></i></a>
+                            </td>
+                        </tr>
+                        <!--타이틀 아닌 곡-->
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>
+                                <div class="no">
+                                    2
+                                </div>
+                            </td>
+                            <td class="table-album-container">
+                                <a href="#">
+                                    <img src="/images/RIIZE_1stmini.jpg" alt="Album Cover">
+                                </a>
+                                <div class="text-container">
+                                    <div class="title-group">
+                                        <div class="song-title">
+                                            <a href="#"></a>
+                                            Siren
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <a href="#">
+                                        <p class="album-title" style="font-size: 12px;">RIIZING - The 1st Mini Album</p>
+                                    </a>
+                                </div>
+                            </td>
+                            <td class="table-artist">
+                                <a href="#">RIIZE</a>
+                            </td>
+                            <td>
+                                <a href="#"><i class="play-btn fas fa-play play-button"></i></a>
+                            </td>
+                            <td>
+                                <a href="#"><i class="add-playlist-btn fas fa-list icon"></i></a>
+                            </td>
+                            <td>
+                                <a href="#"><i class="add-list-btn fas fa-folder-plus custom-icon"></i></a>
+                            </td>
+                            <td>
+                                <a href="#"><i class="more-btn fas fa-ellipsis-h icon"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <br>
+
+
+            <!-- footer start-->
+            <footer class="footer">
+                <div class="container">
+                    <div class="footer-links">
+                        <div>
+                            <b>고객센터</b>
+                            <a href="#">공지사항</a>
+                        </div>
+                        <div>
+                            <b>FLO 서비스</b>
+                            <a href="#">서비스 소개</a>
+                            <a href="#">FLO 플레이어 다운로드</a>
+                            <a href="#">FLO 크리에이터 스튜디오</a>
+                        </div>
+                        <div>
+                            <b>기업 정보</b>
+                            <a href="#">회사소개</a>
+                            <a href="#">인재 채용</a>
+                        </div>
+                        <div>
+                            <b>문의</b>
+                            <a href="#">마케팅 · 광고 · 제휴 문의</a>
+                            <a href="#">서비스 이용 문의</a>
+                            <a href="#">음원 유통 문의</a>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <div>
+                            <a href="#">이용약관</a> |
+                            <a href="#">개인정보 처리방침</a> |
+                            <a href="#">청소년 보호정책</a> |
+                            <a href="#">사업자정보 확인</a>
+                        </div>
+                        <div>
+                            대표이사: 김동훈 | 사업자 등록번호: 214-86-29288 | 통신판매업 신고번호: 2008-서울서초-1039
+                        </div>
+                        <div>
+                            서울특별시 서초구 강남대로 311 드림플러스 15F | 1599-6034 | flo@music-flo.com
+                        </div>
+                        <div>
+                            (주)드림어스컴퍼니 ALL RIGHTS RESERVED
+                        </div>
+                        <div>
+                            본 사이트는 Chrome 및 Microsoft Edge 브라우저에서 사용 가능합니다.
+                        </div>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-xing"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- footer end -->
+</body>
+
+</html>
