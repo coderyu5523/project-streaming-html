@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+
+        /* 헤더 요소 */
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none !important;
+            color: black;
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .header-main {
+            margin: 0 auto;
+            height: 70px;
+            background-size: 100% 100%;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 5px; /* 좌우 패딩을 줄임 */
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links, .auth-links {
+            display: flex;
+            gap: 10px; /* 메뉴 항목 사이의 간격 */
+            align-items: center;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            display: flex;
+            justify-content: start;
+            margin: 0 10px; /* 검색창과 양쪽 요소 사이의 간격 */
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 400px;
+            padding: 8px 12px 8px 40px; /* 왼쪽 패딩을 늘려 아이콘 공간 확보 */
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .search-bar .fa-search {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #000000;
+        }
+
+        /* 푸터 스타일 */
+                /* 푸터 스타일 */
+                .footer {
+            background-color: #f8f9fa;
+            padding: 40px 0;
+            font-size: 14px;
+            color: #6c757d;
+        }
+        .footer .footer-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .footer .footer-links div {
+            flex: 1;
+        }
+        .footer .footer-links div b {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .footer .footer-links a {
+            display: block;
+            margin-bottom: 5px;
+            color: #6c757d;
+        }
+        .footer .footer-links a:hover {
+            text-decoration: underline;
+        }
+        .footer .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #dee2e6;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+        .footer .footer-bottom div {
+            margin-bottom: 5px;
+        }
+        .footer .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .footer .social-icons a {
+            color: #6c757d;
+            font-size: 20px;
+        }
+
+      
+
+
+        /* 이용권 페이지 */
+
+        .main-container{
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-ticket{
+            width: 1100px;
+            height: 2200px;
+        }
+
+
+        /* 탭 스타일: 탭 영역의 스타일 */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        /* 개별 탭 스타일: 탭의 기본 패딩 및 마진 */
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+
+        /* 활성화된 탭 스타일: 활성화된 탭의 색상 및 배경 색상 */
+        .tab.active {
+            color: white;
+            background-color: #3f3fff;
+        }
+
+        /* 탭 호버 스타일: 탭 위에 마우스를 올렸을 때의 효과 */
+        .tab:hover:not(.tab.active) {
+            color: #3f3fff;
+        }
+
+        /* 컨테이너 이미지 스타일: 이미지 크기를 부모 요소에 맞추고 비율 유지 */
+        .ticket-container img {
+            max-width: 100%;
+        }
+
+        /* 첫 번째 컨테이너 스타일: 배경 색상과 텍스트 정렬 */
+        .ticket-container.first {
+            background-color: #3f3fff;
+            margin: 50px auto;
+            max-width: 80%;
+            text-align: center;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* 컨테이너 공통 스타일 */
+        .ticket-container {
+            /* max-width: 100%; */
+            margin: 50px auto;
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: center;
+            justify-content: center;
+            color: #333;
+        }
+
+        /* 이미지 버튼 스타일: 둥근 모서리의 흰색 버튼 */
+        .image-button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+
+        /* 플랜 버튼 스타일: 파란색 배경과 흰색 텍스트의 둥근 버튼 */
+        .plan-button {
+            background-color: #3f3fff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 20px;
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* 첫 번째 콘텐츠 스타일: 중앙 정렬과 패딩 */
+        .content.first {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            column-gap: 10px;
+        }
+
+        /* 분할 컨테이너 스타일: 좌우 박스와 간격 설정 */
+        .ticket-container.split {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 30px;
+        }
+
+        /* 왼쪽 박스 스타일 텍스트 정렬 */
+        .left-box {
+            width: 35%;
+            text-align: left;
+        }
+
+        /* 오른쪽 박스 스타일 텍스트 정렬 */
+        .right-box {
+            width: 65%;
+            text-align: left;
+        }
+
+        /* 분리선 스타일: 박스 사이의 세로 분리선 */
+        .separator {
+            width: 1px;
+            background-color: #ccc;
+            height: 80%;
+            margin: 0 20px;
+            align-self: center;
+        }
+
+        /* 일반 컨테이너 스타일: 기본 배경과 둥근 모서리 */
+        .ticket-container {
+            background-color: #F4F5F8;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 80%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 기본 콘텐츠 스타일: 중앙 정렬 및 최대 너비 제한 해제 */
+        .content {
+            flex: 1;
+            text-align: center;
+            margin: 0 auto;
+            /* 가운데 정렬 */
+        }
+
+        /* 제목 스타일: 제목 크기와 마진 */
+        .plan-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            font-weight: 600;
+        }
+
+        /* 헤더 스타일: 큰 제목 크기와 굵기 */
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* 서브헤더 스타일: 작은 제목 크기와 색상 */
+        .subheader {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* 정가 스타일: 줄이 그어진 텍스트 */
+        .price {
+            font-size: small;
+            text-decoration: line-through;
+        }
+
+        /* 할인된 가격 스타일: 큰 폰트 크기 */
+        .discounted-price {
+            color: #3f3fff;
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 10px;
+        }
+
+        /* 원래 가격 스타일: 줄이 그어진 원래 가격 텍스트 */
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            margin-right: 10px;
+        }
+
+        /* 플랜 스타일: 플랜 항목 간의 정렬 및 간격 */
+        .plan {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        /* 반응형 조정: 화면이 작을 때의 스타일링 */
+        @media (max-width: 768px) {
+
+            /* 좁은 화면에서의 컨테이너 스타일 */
+            .ticket-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+        }
+
+        .plan-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.plan-table td {
+    border: none;
+}
+
+.notice_container {
+    width: 80%;
+    margin: 0 auto; /* 상하 마진은 0, 좌우 마진은 자동으로 설정 */
+}
+.notice_content{
+    color: gray;
+    font-size: 13px;
+}
+    </style>
+</head>
+
+<body>
+    <!-- header start -->
+    <header class="header-main">
+        <nav class="nav-header">
+            <div class="logo">
+                <a href="/">
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                         width="70.5pt" height="52.5pt" viewBox="0 0 94.000000 70.000000"
+                         preserveAspectRatio="xMidYMid meet">
+                        <g transform="translate(0.000000,70.000000) scale(0.100000,-0.100000)"
+                           fill="#000000" stroke="none">
+                            <path d="M412 333 l3 -108 58 -3 c52 -3 57 -1 57 18 0 17 -6 20 -40 20 l-40 0
+                            0 90 c0 84 -1 90 -20 90 -20 0 -21 -5 -18 -107z"/>
+                            <path d="M623 433 c-31 -6 -70 -48 -77 -85 -20 -103 114 -175 189 -101 52 53
+                            37 146 -30 177 -33 16 -41 17 -82 9z m55 -39 c32 -9 55 -56 42 -88 -14 -37
+                            -52 -59 -82 -47 -56 21 -68 80 -24 118 30 25 31 25 64 17z"/>
+                            <path d="M227 423 c-4 -3 -7 -13 -7 -22 0 -13 13 -16 68 -16 59 0 67 2 70 20
+                            2 18 -4 20 -61 23 -35 1 -66 -1 -70 -5z"/>
+                            <path d="M227 343 c-4 -3 -7 -33 -7 -65 0 -51 2 -58 20 -58 17 0 20 7 20 45
+                            l0 45 48 -3 c40 -2 47 1 50 18 2 18 -4 20 -61 23 -35 1 -66 -1 -70 -5z"/>
+                        </g>
+                    </svg>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="/boards/sports" class="text-body">둘러보기</a>
+                <a href="/boards/games" class="text-body">보관함</a>
+                <a href="/boards/foods" class="text-body">이용권</a>
+            </div>
+            <div class="search-bar">
+                <i class="fa fa-search"></i>
+                <input type="text" placeholder="검색어를 입력하세요.">
+            </div>
+            <div class="auth-links">
+                <a href="/logout" class="text-body">로그인</a>
+                <a href="/join-section" class="text-body">회원가입</a>
+            </div>
+        </nav>
+    </header>
+    <!-- header end -->
+    
+
+
+    <div class="main-container mt-4">
+        <div class="main-ticket">
+    
+
+    <div class="tabs">
+        <div class="tab active" onclick="activateTab(this)">일반</div>
+        <div class="tab" onclick="activateTab(this)">T혜택</div>
+        <div class="tab" onclick="activateTab(this)">제휴</div>
+        <div class="tab" onclick="activateTab(this)">나의 이용권</div>
+        <div class="tab" onclick="activateTab(this)">쿠폰함</div>
+    </div>
+
+    <div class="ticket-container first">
+        <img src="../images/ticket/첫달100.png" alt="첫 달 100원 이미지">
+        <div class="content first">
+            <div class="title-img">(첫 구매) 무제한 듣기 정기결제</div>
+            <div>
+                <span class="price">정가 8,000원</span>
+                <span style="color: white;">100원</span>
+            </div>
+            <button class="image-button">구매</button>
+        </div>
+
+    </div>
+
+    <div class="ticket-container split">
+        <div class="left-box">
+            <div class="header">무제한 듣기</div>
+            <div class="subheader">기기제한 없음, 무제한 스트리밍</div>
+        </div>
+        <div class="separator"></div>
+
+        <div class="right-box">
+            <table class="plan-table">
+                <tr>
+                    <td>
+                        <div class="plan-title">정기결제</div>
+                    </td>
+                    <td>
+                        <span class="original-price">정가 8,000원</span>
+                    </td>
+                    <td>
+                        <span class="discounted-price">7,900원</span>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="plan-title">T멤버십 최소 100원 6개월</div>
+                    </td>
+                    <td>
+                        <span class="original-price">정가 7,900원</span>
+                    </td>
+                    <td>
+                        <span class="discounted-price" style="color: red;">100원</span>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="plan-title">1개월 이용권</div>
+                    </td>
+                    <td>
+                        <!-- Empty cell for alignment -->
+                    </td>
+                    <td>
+                        <span class="discounted-price">8,000원</span>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="plan-title">12개월 이용권 15% 할인</div>
+                    </td>
+                    <td>
+                        <span class="original-price">정가 96,000원</span>
+                    </td>
+                    <td>
+                        <span class="discounted-price">81,600원</span>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        </div>
+
+    <div class="ticket-container split">
+        <div class="left-box">
+            <div class="header">모바일 무제한 듣기</div>
+            <div class="subheader">모바일 전용, 무제한 스트리밍</div>
+        </div>
+        <div class="separator"></div>
+        <div class="right-box">
+            <table class="plan-table">
+                <tr>
+                    <td>
+                        <div class="plan-title">정기결제</div>
+                    </td>
+                    <td>
+                        <span class="original-price">정가 7,000원</span>
+                    </td>
+                    <td>
+                        <span class="discounted-price">76,900원</span>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="plan-title">T멤버십 최소 100원 6개월</div>
+                    </td>
+                    <td>
+                        <span class="original-price">정가 6,900원</span>
+                    </td>
+                    <td>
+                        <span class="discounted-price">100원</span>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="plan-title">1개월 이용권</div>
+                    </td>
+                    <td>
+                        <!-- Empty cell for alignment -->
+                    </td>
+                    <td>
+                        <div class="discounted-price">7,000원</div>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="plan-title">12개월 이용권 15% 할인</div>
+                    </td>
+                    <td>
+                        <span class="original-price">정가 84,000원</span>
+                    </td>
+                    <td>
+                        <span class="discounted-price">71,400원</span>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+            </table>
+        </div>    </div>
+
+    <div class="ticket-container split">
+        <div class="left-box">
+            <div class="header">무제한 듣기+오프라인 재생</div>
+            <div class="subheader">기기제한 없음, 무제한 스트리밍, 오프라인 재생</div>
+        </div>
+        <div class="separator"></div>
+        <div class="right-box">
+            <table class="plan-table">
+                <tr>
+                    <td>
+                        <div class="plan-title">정기결제</div>
+                    </td>
+                    <td>
+                        <span class="original-price">정가 11,000원</span>
+                    </td>
+                    <td>
+                        <span class="discounted-price">10,900원</span>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="plan-title">T멤버십 최소 100원 6개월</div>
+                    </td>
+                    <td>
+                        <span class="original-price">정가 10,900원</span>
+                    </td>
+                    <td>
+                        <span class="discounted-price">100원</span>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="plan-title">1개월 이용권</div>
+                    </td>
+                    <td>
+                        <!-- Empty cell for alignment -->
+                    </td>
+                    <td>
+                        <div class="discounted-price">11,000원</div>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="plan-title">12개월 이용권 15% 할인</div>
+                    </td>
+                    <td>
+                        <span class="original-price">정가 132,000원</span>
+                    </td>
+                    <td>
+                        <span class="discounted-price">112,200원</span>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+            </table>
+        </div>    
+    </div>
+
+    <br>
+
+    <div class="notice_container">
+    <div>
+        <b>이용권 유의사항</b>
+    </div>
+    <br>
+    <div class="notice_content">300회 듣기 이용권은 결제일로부터 1개월의 사용기간을 기준으로 하는 월 단위 상품으로, 1개월 경과 시 잔여 횟수는 자동 소멸됩니다.<br>
+    300회 듣기 이용권은 1분 이상 재생 시 1회 차감 됩니다. (단, 1분미만 곡인 경우 감상 완료 후 차감 됩니다.)<br>
+    모바일 300회/무제한 듣기 이용권은 결제일로부터 1개월의 사용기간을 기준으로 하는 월 단위 상품으로, FLO APP을 지원하는 스마트폰 및 태블릿에서 사용하실 수 있습니다.<br>
+    300회/무제한 듣기 이용권은 결제일로부터 1개월의 사용기간을 기준으로 하는 월 단위 상품으로, FLO APP을 지원하는 스마트 폰 및 태블릿과 AI 스피커 및 B tv, PC에서도 사용하실 수 있습니다.<br>
+    무제한 듣기+오프라인 재생의 오프라인 파일 저장 및 재생 기능은 인증된 모바일 디바이스 1대에서 가능하며, 오프라인 재생 기능을 통해 데이터 연결 없이 음악을 감상 할 수 있습니다.<br>
+    무제한 듣기+오프라인 재생의 오프라인 파일 저장 및 재생 기능은 FLO 모바일 앱에서만 사용이 가능하며, PC용 플레이어, 웨어러블 디바이스, AI 스피커 등의 환경에서는 지원하지 않습니다.<br>
+    T멤버십 혜택(할인/포인트 적립)은 결제가의 최대 30%까지, T플러스포인트사용은 T멤버십 할인이 적용 된 금액에서 최소 결제가 110원(vat 포함)을 제외한 금액의 최대 100%까지 적용 가능합니다. T멤버십 혜택의 잔여 횟수는 이월되지 않으며, 해가 바뀌면 수동으로 T멤버십 재적용을 해야 하는 점 유의하시기 바랍니다.<br>
+    T멤버십 제휴 계약이 종료 또는 변경되는 경우 제휴 서비스 혜택을 받을 수 없거나 혜택의 내용 및 종류 등이 변경 될 수 있습니다.<br>
+    그 외 T멤버십 관련 상세 내용은 T멤버십 APP에서 확인하실 수 있습니다.<br>
+    네이버페이를 통한 정기결제 이용권 구매는 네이버 ID를 기준으로 이용권 당 1회 구매가 가능하며, 정기결제 이용권 보유 상태에서 네이버페이를 통해 FLO의 다른 계정으로 동일한 이용권 구매를 원하실 경우 다른 네이버 ID로 시도해주시기 바랍니다.<br>
+    최근 1년 이내 FLO 앤 데이터/플러스 가입 및 FLO 앤 데이터/플러스 할인 혜택을 받은 이력이 있을 경우 FLO의 무제한 듣기/모바일 무제한 듣기 T멤버십 이용권 구매가 불가 할 수 있습니다.<br>
+    최근 1년 이내 FLO의 무제한 듣기/모바일 무제한 듣기 T멤버십 이용권 구매 이력이 있을 경우 FLO 앤 데이터/플러스 이용이 불가 할 수 있습니다.<br>
+    이용권 구매 시 부가가치세(10%)가 별도 부과됩니다.<br>
+    정기결제 해지는 [APP]접속>설정>나의 계정/이용권 관리>현재 보유 이용권/[Web]이용권 메뉴 >나의 이용권>상세보기에서 가능합니다.<br>
+    음원 제공사의 요청으로 특정 곡의 경우 서비스 이용이 제한될 수 있습니다.<br>
+    그 외 이용권 구매 관련 문의사항은 고객센터 1599-6034(유료)에 문의해주세요.<br>
+    </div>
+</div>
+
+
+
+</div>
+</div>
+
+<!-- footer start-->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-links">
+            <div>
+                <b>고객센터</b>
+                <a href="#">공지사항</a>
+            </div>
+            <div>
+                <b>FLO 서비스</b>
+                <a href="#">서비스 소개</a>
+                <a href="#">FLO 플레이어 다운로드</a>
+                <a href="#">FLO 크리에이터 스튜디오</a>
+            </div>
+            <div>
+                <b>기업 정보</b>
+                <a href="#">회사소개</a>
+                <a href="#">인재 채용</a>
+            </div>
+            <div>
+                <b>문의</b>
+                <a href="#">마케팅 · 광고 · 제휴 문의</a>
+                <a href="#">서비스 이용 문의</a>
+                <a href="#">음원 유통 문의</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>
+                <a href="#">이용약관</a> |
+                <a href="#">개인정보 처리방침</a> |
+                <a href="#">청소년 보호정책</a> |
+                <a href="#">사업자정보 확인</a>
+            </div>
+            <div>
+                대표이사: 김동훈 | 사업자 등록번호: 214-86-29288 | 통신판매업 신고번호: 2008-서울서초-1039
+            </div>
+            <div>
+                서울특별시 서초구 강남대로 311 드림플러스 15F | 1599-6034 | flo@music-flo.com
+            </div>
+            <div>
+                (주)드림어스컴퍼니 ALL RIGHTS RESERVED
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-xing"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer end -->
+</body>
+</html>
+    <br>
+    <script>
+        function activateTab(tab) {
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+        }
+    </script>
+
+

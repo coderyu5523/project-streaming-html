@@ -21,7 +21,7 @@
             color: black;
             padding: 0;
             margin: 0;
-            display: block;
+            /* display: block; */
         }
 
         .header-main {
@@ -85,6 +85,7 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 20px;
+        
         }
         .footer .footer-links div {
             flex: 1;
@@ -203,7 +204,7 @@
         }
         .result-table .play-button {
             font-size: 16px;
-            color: #007bff;
+            color: black;
             cursor: pointer;
         }
         .result-table .play-button:hover {
@@ -214,9 +215,9 @@
             color: #6c757d;
             cursor: pointer;
         }
-        .result-table .icon:hover {
+        /* .result-table .icon:hover {
             color: #3F3FFF;
-        }
+        } */
 
         .album-grid {
             display: grid;
@@ -337,6 +338,13 @@
             position: relative;
             display: inline-block;
         }
+
+        .notice_container {
+    width: 85%; /* 또는 적절한 너비 설정 */
+    margin: 0 auto; /* 좌우 자동 마진으로 중앙 정렬 */
+}
+
+        
     </style>
 </head>
 <body>
@@ -410,9 +418,11 @@
                         <p>How Sweet ></p>
                     </a>
                     <br>
-                    <a href="#"><i class="album-icon fas fa-list icon"></i></a>
-                    <a href="#"><i class="album-icon fas fa-folder-plus custom-icon"></i></a>
-                </div>
+                    <div class="d-flex">
+                        <a href="#"><i class="album-icon fas fa-list icon"></i></a>
+                        <a href="#"><i class="album-icon fas fa-folder-plus custom-icon"></i></a>
+                    </div>
+            </div>
             </div>
         </div>
 
@@ -922,7 +932,6 @@
     </div>
 </div>
 <br>
-
 <!-- footer start-->
 <footer class="footer">
     <div class="container">
@@ -978,5 +987,6 @@
     </div>
 </footer>
 <!-- footer end -->
+
 </body>
 </html>
