@@ -12,6 +12,18 @@
             font-family: Arial, sans-serif;
         }
 
+
+        .main-container{
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-ticket{
+            width: 1100px;
+            height: 2200px;
+        }
+
+
         /* 탭 스타일: 탭 영역의 스타일 */
         .tabs {
             display: flex;
@@ -48,7 +60,7 @@
         .container.first {
             background-color: #3f3fff;
             margin: 50px auto;
-            max-width: 80%;
+            max-width: 85%;
             text-align: center;
             color: white;
             display: flex;
@@ -60,7 +72,7 @@
 
         /* 컨테이너 공통 스타일 */
         .container {
-            max-width: 80%;
+            /* max-width: 100%; */
             margin: 50px auto;
             background-color: #f9f9f9;
             border-radius: 15px;
@@ -132,7 +144,7 @@
 
         /* 일반 컨테이너 스타일: 기본 배경과 둥근 모서리 */
         .container {
-            background-color: #f9f9f9;
+            background-color: #F4F5F8;
             border-radius: 15px;
             margin: 20px auto;
             max-width: 80%;
@@ -151,9 +163,10 @@
 
         /* 제목 스타일: 제목 크기와 마진 */
         .plan-title {
-            font-size: 1.2em;
+            font-size: 16px;
             margin-bottom: 10px;
             flex-wrap: wrap;
+            font-weight: 600;
         }
 
         /* 헤더 스타일: 큰 제목 크기와 굵기 */
@@ -179,7 +192,8 @@
         /* 할인된 가격 스타일: 큰 폰트 크기 */
         .discounted-price {
             color: #3f3fff;
-            font-size: 1.5em;
+            font-size: 20px;
+            font-weight: 600;
             margin: 0 10px;
         }
 
@@ -208,10 +222,29 @@
             }
 
         }
+
+        .plan-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.plan-table td {
+    border: none;
+}
+
+.notice_container{
+    width: 85%;
+
+}
     </style>
 </head>
 
 <body>
+
+    <div class="main-container mt-4">
+        <div class="main-ticket">
+    
+
     <div class="tabs">
         <div class="tab active" onclick="activateTab(this)">일반</div>
         <div class="tab" onclick="activateTab(this)">T혜택</div>
@@ -239,38 +272,68 @@
             <div class="subheader">기기제한 없음, 무제한 스트리밍</div>
         </div>
         <div class="separator"></div>
+
         <div class="right-box">
-            <div class="plan">
-                <div class="plan-title">정기결제</div>
-                <div class="plan-price">
-                    <span class="original-price">정가 8,000원</span>
-                    <span class="discounted-price">7,900원</span>
-                </div>
-                <button class="plan-button">구매</button>
-            </div>
-            <div class="plan">
-                <div class="plan-title">T멤버십 최소 100원 6개월</div>
-                <div class="plan-price">
-                    <span class="original-price">정가 7,900원</span>
-                    <span class="discounted-price">100원</span>
-                </div>
-                <button class="plan-button">구매</button>
-            </div>
-            <div class="plan">
-                <div class="plan-title">1개월 이용권</div>
-                <span class="discounted-price">8,000원</span>
-                <button class="plan-button">구매</button>
-            </div>
-            <div class="plan">
-                <div class="plan-title">12개월 이용권 15% 할인</div>
-                <div class="plan-price">
-                    <span class="original-price">정가 96,000원</span>
-                    <span class="discounted-price">81,600원</span>
-                </div>
-                <button class="plan-button">구매</button>
-            </div>
+            <table class="plan-table">
+                <tr>
+                    <td>
+                        <div class="plan-title">정기결제</div>
+                    </td>
+                    <td>
+                        <span class="original-price">정가 8,000원</span>
+                    </td>
+                    <td>
+                        <span class="discounted-price">7,900원</span>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="plan-title">T멤버십 최소 100원 6개월</div>
+                    </td>
+                    <td>
+                        <span class="original-price">정가 7,900원</span>
+                    </td>
+                    <td>
+                        <span class="discounted-price" style="color: red;">100원</span>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="plan-title">1개월 이용권</div>
+                    </td>
+                    <td>
+                        <!-- Empty cell for alignment -->
+                    </td>
+                    <td>
+                        <span class="discounted-price">8,000원</span>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="plan-title">12개월 이용권 15% 할인</div>
+                    </td>
+                    <td>
+                        <span class="original-price">정가 96,000원</span>
+                    </td>
+                    <td>
+                        <span class="discounted-price">81,600원</span>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+            </table>
         </div>
-    </div>
+        </div>
 
     <div class="container split">
         <div class="left-box">
@@ -279,37 +342,65 @@
         </div>
         <div class="separator"></div>
         <div class="right-box">
-            <div class="plan">
-                <div class="plan-title">정기결제</div>
-                <div class="plan-price">
-                    <span class="original-price">정가 7,000원</span>
-                    <span class="discounted-price">76,900원</span>
-                </div>
-                <button class="plan-button">구매</button>
-            </div>
-            <div class="plan">
-                <div class="plan-title">T멤버십 최소 100원 6개월</div>
-                <div class="plan-price">
-                    <span class="original-price">정가 6,900원</span>
-                    <span class="discounted-price">100원</span>
-                </div>
-                <button class="plan-button">구매</button>
-            </div>
-            <div class="plan">
-                <div class="plan-title">1개월 이용권</div>
-                <div class="discounted-price">7,000원</div>
-                <button class="plan-button">구매</button>
-            </div>
-            <div class="plan">
-                <div class="plan-title">12개월 이용권 15% 할인</div>
-                <div class="plan-price">
-                    <span class="original-price">정가 84,000원</span>
-                    <span class="discounted-price">71,400원</span>
-                </div>
-                <button class="plan-button">구매</button>
-            </div>
-        </div>
-    </div>
+            <table class="plan-table">
+                <tr>
+                    <td>
+                        <div class="plan-title">정기결제</div>
+                    </td>
+                    <td>
+                        <span class="original-price">정가 7,000원</span>
+                    </td>
+                    <td>
+                        <span class="discounted-price">76,900원</span>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="plan-title">T멤버십 최소 100원 6개월</div>
+                    </td>
+                    <td>
+                        <span class="original-price">정가 6,900원</span>
+                    </td>
+                    <td>
+                        <span class="discounted-price">100원</span>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="plan-title">1개월 이용권</div>
+                    </td>
+                    <td>
+                        <!-- Empty cell for alignment -->
+                    </td>
+                    <td>
+                        <div class="discounted-price">7,000원</div>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="plan-title">12개월 이용권 15% 할인</div>
+                    </td>
+                    <td>
+                        <span class="original-price">정가 84,000원</span>
+                    </td>
+                    <td>
+                        <span class="discounted-price">71,400원</span>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+            </table>
+        </div>    </div>
 
     <div class="container split">
         <div class="left-box">
@@ -318,54 +409,71 @@
         </div>
         <div class="separator"></div>
         <div class="right-box">
-            <div class="plan">
-                <div class="plan-title">정기결제</div>
-                <div class="plan-price">
-                    <span class="original-price">정가 11,000원</span>
-                    <span class="discounted-price">10,900원</span>
-                </div>
-                <button class="plan-button">구매</button>
-            </div>
-            <div class="plan">
-                <div class="plan-title">T멤버십 최소 100원 6개월</div>
-                <div class="plan-price">
-                    <span class="original-price">정가 10,900원</span>
-                    <span class="discounted-price">100원</span>
-                </div>
-                <button class="plan-button">구매</button>
-            </div>
-            <div class="plan">
-                <div class="plan-title">1개월 이용권</div>
-                <div class="discounted-price">11,000원</div>
-                <button class="plan-button">구매</button>
-            </div>
-            <div class="plan">
-                <div class="plan-title">12개월 이용권 15% 할인</div>
-                <div class="plan-price">
-                    <span class="original-price">정가 132,000원</span>
-                    <span class="discounted-price">112,200원</span>
-                </div>
-                <button class="plan-button">구매</button>
-            </div>
-        </div>
+            <table class="plan-table">
+                <tr>
+                    <td>
+                        <div class="plan-title">정기결제</div>
+                    </td>
+                    <td>
+                        <span class="original-price">정가 11,000원</span>
+                    </td>
+                    <td>
+                        <span class="discounted-price">10,900원</span>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="plan-title">T멤버십 최소 100원 6개월</div>
+                    </td>
+                    <td>
+                        <span class="original-price">정가 10,900원</span>
+                    </td>
+                    <td>
+                        <span class="discounted-price">100원</span>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="plan-title">1개월 이용권</div>
+                    </td>
+                    <td>
+                        <!-- Empty cell for alignment -->
+                    </td>
+                    <td>
+                        <div class="discounted-price">11,000원</div>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="plan-title">12개월 이용권 15% 할인</div>
+                    </td>
+                    <td>
+                        <span class="original-price">정가 132,000원</span>
+                    </td>
+                    <td>
+                        <span class="discounted-price">112,200원</span>
+                    </td>
+                    <td>
+                        <button class="plan-button">구매</button>
+                    </td>
+                </tr>
+            </table>
+        </div>    
     </div>
 
-    <div class="container split">
-        <div class="left-box">
-            <div class="header">300회 듣기</div>
-            <div class="subheader">기기제한 없음, 횟수 제한</div>
-        </div>
-        <div class="separator"></div>
-        <div class="right-box">
-            <div class="plan">
-                <div class="plan-title">1개월 이용권</div>
-                <div class="discounted-price">4,800원</div>
-                <button class="plan-button">구매</button>
-            </div>
-        </div>
+    <div class="notice_container">
+    <div>
+        <b>이용권 유의사항</b>
     </div>
-    <br>
-    <div><b>이용권 유의사항</b></div>
     <div>300회 듣기 이용권은 결제일로부터 1개월의 사용기간을 기준으로 하는 월 단위 상품으로, 1개월 경과 시 잔여 횟수는 자동 소멸됩니다.<br>
     300회 듣기 이용권은 1분 이상 재생 시 1회 차감 됩니다. (단, 1분미만 곡인 경우 감상 완료 후 차감 됩니다.)<br>
     모바일 300회/무제한 듣기 이용권은 결제일로부터 1개월의 사용기간을 기준으로 하는 월 단위 상품으로, FLO APP을 지원하는 스마트폰 및 태블릿에서 사용하실 수 있습니다.<br>
@@ -383,6 +491,14 @@
     음원 제공사의 요청으로 특정 곡의 경우 서비스 이용이 제한될 수 있습니다.<br>
     그 외 이용권 구매 관련 문의사항은 고객센터 1599-6034(유료)에 문의해주세요.<br>
     </div>
+</div>
+
+
+
+</div>
+</div>
+
+    <br>
     <script>
         function activateTab(tab) {
             const tabs = document.querySelectorAll('.tab');
