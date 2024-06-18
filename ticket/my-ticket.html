@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falling</title>
+    <style>
+        /* 탭 스타일: 탭 영역의 스타일 탭 부분은 normal과 동일 */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        /* 개별 탭 스타일: 탭의 기본 패딩 및 마진 */
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+
+        /* 활성화된 탭 스타일: 활성화된 탭의 색상 및 배경 색상 */
+        .tab.active {
+            color: white;
+            background-color: #3f3fff;
+        }
+
+        /* 탭 호버 스타일: 탭 위에 마우스를 올렸을 때의 효과 */
+        .tab:hover:not(.tab.active) {
+            color: #3f3fff;
+        }
+
+        /* 나의 이용권 컨테이너 스타일 */
+        .container.my-ticket {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 55%;
+            position: relative;
+        }
+
+        /* 내용 및 헤더 스타일 */
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            margin: 20px auto;
+            padding: 70px;
+        }
+
+        .header {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* 서브헤더 스타일: 작은 제목 크기와 색상  검정색*/
+        .subheader {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        /* 이용권 구매 버튼 스타일 */
+        .plan-button {
+            background-color: #3f3fff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 20px;
+        font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tabs">
+        <div class="tab active" onclick="activateTab(this)">일반</div>
+        <div class="tab" onclick="activateTab(this)">T혜택</div>
+        <div class="tab" onclick="activateTab(this)">제휴</div>
+        <div class="tab" onclick="activateTab(this)">나의 이용권</div>
+        <div class="tab" onclick="activateTab(this)">쿠폰함</div>
+    </div>
+</div>
+
+<div class="container my-ticket">
+    <div class="subheader">사용 중인 이용권</div>
+    <div class="content">
+        <div class="header">사용 중인 이용권이 없습니다.</div>
+        <button class="plan-button">이용권 구매</button>
+    </div>
+</div>
+
+<div class="container my-ticket">
+    <div class="subheader">사용 대기 이용권</div>
+    <div class="content">
+        <div class="header">사용 대기 중인 이용권이 없습니다.</div>
+    </div>
+</div>
+
+<div class="container my-ticket">
+    <div class="subheader">사용 완료된 이용권</div>
+    <div class="content">
+        <div class="header">사용 완료 내역이 없습니다.</div>
+    </div>
+</div>
+
+<script>
+    function activateTab(tab) {
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
