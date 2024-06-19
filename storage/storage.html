@@ -347,12 +347,16 @@
             margin-top: 40px;
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 70px;
         }
 
         .storage-tabs-like-artist-box {
+            align-items: center;
+            display: flex;
+            justify-content: center;
             text-align: center;
             position: relative;
+            gap: 10px;
         }
 
         .storage-tabs-like-artist-box img {
@@ -361,14 +365,23 @@
             height: 180px;
         }
 
+        .storage-tabs-like-artist-info {
+            text-align: left;
+        }
+
         .storage-tabs-like-artist-name {
-            margin-top: 10px;
             font-size: 18px;
         }
 
         .storage-tabs-like-artist-role {
             font-size: 14px;
             color: grey;
+        }
+
+        .storage-tabs-like-artist-play {
+            color: grey;
+            margin-top: 15px;
+            font-size: 14px;
         }
 
         .storage-tabs-like-artist-img-container {
@@ -497,16 +510,16 @@
         </div> -->
 
         <!-- 좋아요 -->
+        <div class="storage-tabs-like-chart-tags">
+            <ul>
+                <li>곡</li>
+                <li>앨범</li>
+                <li>아티스트</li>
+                <li>리스트</li>
+            </ul>
+        </div>
         <!-- 좋아요 - 곡 -->
         <!-- <div class="storage-tabs-like-chart">
-            <div class="storage-tabs-like-chart-tags">
-                <ul>
-                    <li>곡</li>
-                    <li>앨범</li>
-                    <li>아티스트</li>
-                    <li>리스트</li>
-                </ul>
-            </div>
             <div class="storage-tabs-like-chart-playall">
                 <div>▷ 전체듣기</div>
                 <div>편집</div>
@@ -640,8 +653,11 @@
                         <button class="storage-tabs-like-artist-play-button">▶</button>
                     </a>
                 </div>
-                <div class="storage-tabs-like-artist-name">NewJeans</div>
-                <div class="storage-tabs-like-artist-role">그룹 | 여성</div>
+                <div class="storage-tabs-like-artist-info">
+                    <div class="storage-tabs-like-artist-name">NewJeans</div>
+                    <div class="storage-tabs-like-artist-role">그룹 | 여성</div>
+                    <div class="storage-tabs-like-artist-play">▷ 인기곡 듣기</div>
+                </div>
             </div>
             <div class="storage-tabs-like-artist-box">
                 <div class="storage-tabs-like-artist-img-container">
@@ -650,8 +666,11 @@
                         <button class="storage-tabs-like-artist-play-button">▶</button>
                     </a>
                 </div>
-                <div class="storage-tabs-like-artist-name">NewJeans</div>
-                <div class="storage-tabs-like-artist-role">그룹 | 여성</div>
+                <div class="storage-tabs-like-artist-info">
+                    <div class="storage-tabs-like-artist-name">NewJeans</div>
+                    <div class="storage-tabs-like-artist-role">그룹 | 여성</div>
+                    <div class="storage-tabs-like-artist-play">▷ 인기곡 듣기</div>
+                </div>
             </div>
             <div class="storage-tabs-like-artist-box">
                 <div class="storage-tabs-like-artist-img-container">
@@ -660,11 +679,15 @@
                         <button class="storage-tabs-like-artist-play-button">▶</button>
                     </a>
                 </div>
-                <div class="storage-tabs-like-artist-name">NewJeans</div>
-                <div class="storage-tabs-like-artist-role">그룹 | 여성</div>
+                <div class="storage-tabs-like-artist-info">
+                    <div class="storage-tabs-like-artist-name">NewJeans</div>
+                    <div class="storage-tabs-like-artist-role">그룹 | 여성</div>
+                    <div class="storage-tabs-like-artist-play">▷ 인기곡 듣기</div>
+                </div>
             </div>
 
         </div>
+
         <br>
 
         <!-- footer start-->
