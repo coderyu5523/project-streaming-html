@@ -46,8 +46,6 @@
             height: 100%;
         }
 
-        .tab-head {}
-
         .tab-head p {
             margin-top: 40px;
             font-size: 32px;
@@ -107,7 +105,7 @@
 
 
         .search-left em {
-            color: #f45858;
+            color: #403FFF;
         }
 
         .tab-item table {
@@ -119,19 +117,14 @@
 
         }
 
-        /* .tab-item table tr:hover{
-    background: #d9dee4;
-} */
         .tab-item table thead th {
             padding: 15px 10px;
             color: #fff;
             font-weight: 700;
             border: 1px solid #ddd;
-            color: #f45858;
+            color: #00028f;
             text-align: center;
         }
-
-        .tab-item table tbody tr {}
 
         .tab-item table tbody td {
 
@@ -172,46 +165,17 @@
             background: #222;
         }
 
-        .tab-search {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            margin-top: 20px;
-        }
-
-        .tab-input-wrapper input {
-            padding: 10px;
-            border-radius: 5px;
-
-            outline: none;
-        }
-
-        .tab-input-wrapper input.input-id {
-            width: 200px;
-            border-radius: 5px;
-            height: 40px;
-            padding: 0 10px;
-        }
-
-        .tab-input-wrapper input.submit-btn {
-            background: #343a40;
-            color: #fff;
-            cursor: pointer;
-            transition: 0.4s ease;
-            width: 100px;
-            margin-left: 10px;
-        }
-
-        .tab-input-wrapper input.submit-btn:hover {
-            background: #222;
-        }
 
         .black {
-            background: #000000;
+            background: #2c2c2c;
         }
 
-        .approval {
+        .active {
             background: #03cf5d;
+        }
+
+        .refuse {
+            background: #FAB80D;
         }
     </style>
 </head>
@@ -258,17 +222,25 @@
                                         </colgroup>
                                         <thead>
                                             <tr>
-                                                <th scope="col">회원명</th>
                                                 <th scope="col">이메일</th>
+                                                <th scope="col">가입경로</th>
                                                 <th scope="col">상태</th>
                                                 <th scope="col">상세보기</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td class="title">홍길동</td>
                                                 <td>gildong@nate.com</td>
+                                                <td>KAKAO</td>
                                                 <td><span class="state black">블랙</span>
+                                                </td>
+                                                <td><span class="detail" onclick="location.href='#'">상세보기</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>metacoding@nate.com</td>
+                                                <td>NAVER</td>
+                                                <td><span class="state active">활성</span>
                                                 </td>
                                                 <td><span class="detail" onclick="location.href='#'">상세보기</span>
                                                 </td>
