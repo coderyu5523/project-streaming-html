@@ -404,6 +404,12 @@
             font-size: 20px;
             cursor: pointer;
         }
+
+        .storage-tabs-like-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 70px;
+        }
     </style>
 </head>
 
@@ -455,7 +461,7 @@
             <div class="highlight"></div>
         </div>
         <!-- 내 리스트 -->
-        <!-- <div class="storage-tabs-mylist-items">
+        <div class="storage-tabs-mylist-items">
             <div class="storage-tabs-mylist-item">
                 <a href="#">
                     <img src="../images/chart/HowSweet.webp" alt="Playlist 2">
@@ -507,17 +513,17 @@
                     새로운 리스트 만들기
                 </div>
             </div>
-        </div> -->
+        </div>
 
         <!-- 좋아요 -->
-        <div class="storage-tabs-like-chart-tags">
+        <!-- <div class="storage-tabs-like-chart-tags">
             <ul>
                 <li>곡</li>
                 <li>앨범</li>
                 <li>아티스트</li>
                 <li>리스트</li>
             </ul>
-        </div>
+        </div> -->
         <!-- 좋아요 - 곡 -->
         <!-- <div class="storage-tabs-like-chart">
             <div class="storage-tabs-like-chart-playall">
@@ -645,7 +651,7 @@
         </div> -->
 
         <!-- 좋아요 - 아티스트 -->
-        <div class="storage-tabs-like-artists">
+        <!-- <div class="storage-tabs-like-artists">
             <div class="storage-tabs-like-artist-box">
                 <div class="storage-tabs-like-artist-img-container">
                     <a href="#">
@@ -685,66 +691,238 @@
                     <div class="storage-tabs-like-artist-play">▷ 인기곡 듣기</div>
                 </div>
             </div>
+        </div> -->
+        <!-- 좋아요 - 리스트 -->
+        <!-- <div class="storage-tabs-like-list">
+            <div class="storage-tabs-mylist-item">
+                <a href="#">
+                    <img src="../images/chart/Armageddon.webp" alt="Armageddon">
+                </a>
+                <div class="storage-tabs-mylist-item-info">
+                    <a href="#">
+                        <h3 style="font-weight: 600;">재생목록1</h3>
+                    </a>
+                    <a href="#">
+                        <p>만든이</p>
+                    </a>
+                    <a href="#">
+                        <p>10곡</p>
+                    </a>
+                    <br>
+                    <div class="storage-tabs-mylist-item-icons">
+                        <a href="#"><i class="album-icon fas fa-list icon"></i></a>
+                        <a href="#"><i class="album-icon fas fa-folder-plus custom-icon"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="storage-tabs-mylist-item">
+                <a href="#">
+                    <img src="../images/chart/HowSweet.webp" alt="Armageddon">
+                </a>
+                <div class="storage-tabs-mylist-item-info">
+                    <a href="#">
+                        <h3 style="font-weight: 600;">재생목록2</h3>
+                    </a>
+                    <a href="#">
+                        <p>만든이</p>
+                    </a>
+                    <a href="#">
+                        <p>10곡</p>
+                    </a>
+                    <br>
+                    <div class="storage-tabs-mylist-item-icons">
+                        <a href="#"><i class="album-icon fas fa-list icon"></i></a>
+                        <a href="#"><i class="album-icon fas fa-folder-plus custom-icon"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- 최근 감상 -->
+        <!-- <div class="storage-tabs-like-chart-tags">
+            <ul>
+                <li>곡</li>
+                <li>리스트</li>
+            </ul>
+        </div> -->
+        <!-- 최근 감상 - 곡 -->
+        <!-- <div class="storage-tabs-like-chart">
+            <div class="storage-tabs-like-chart-playall">
+                <div>▷ 전체듣기</div>
+                <div>편집</div>
+            </div>
+            <table class="storage-tabs-like-chart-main-table">
+                <tr class="storage-tabs-like-chart-main-table-header">
+                    <th><input type="checkbox"></th>
+                    <th>곡/앨범</th>
+                    <th>아티스트</th>
+                    <th>듣기</th>
+                    <th>재생목록</th>
+                    <th>내 리스트</th>
+                    <th>더보기</th>
+                </tr>
+                <tr class="storage-tabs-like-chart-main-table-body">
+                    <td><input type="checkbox"></td>
+                    <td>
+                        <div class="storage-tabs-like-chart-main-table-body-img">
+                            <img class="storage-tabs-like-chart-img" src="../images/chart/Armageddon.webp"
+                                alt="Armageddon">
+                            <span>
+                                <div>Supernova</div>
+                                <div class="storage-tabs-like-chart-album-name">Armageddon - The 1st Album</div>
+                            </span>
+                        </div>
+                    </td>
 
+                    <td>aespa</td>
+                    <td><i class="fa-solid fa-play"></i></td>
+                    <td><i class="fa-solid fa-list-ul"></i></td>
+                    <td><i class="fa-solid fa-folder-plus"></i></td>
+                    <td><i class="fa-solid fa-ellipsis-vertical"></i></td>
+                </tr>
+                <tr class="storage-tabs-like-chart-main-table-body">
+                    <td><input type="checkbox"></td>
+                    <td>
+                        <div class="storage-tabs-like-chart-main-table-body-img">
+                            <img class="storage-tabs-like-chart-img" src="../images/chart/HowSweet.webp" alt="HowSweet">
+                            <span>
+                                <div>How Sweet</div>
+                                <div class="storage-tabs-like-chart-album-name">How Sweet</div>
+                            </span>
+                        </div>
+                    </td>
+
+                    <td>NewJeans</td>
+                    <td><i class="fa-solid fa-play"></i></td>
+                    <td><i class="fa-solid fa-list-ul"></i></td>
+                    <td><i class="fa-solid fa-folder-plus"></i></td>
+                    <td><i class="fa-solid fa-ellipsis-vertical"></i></td>
+                </tr>
+                <tr class="storage-tabs-like-chart-main-table-body">
+                    <td><input type="checkbox"></td>
+                    <td>
+                        <div class="storage-tabs-like-chart-main-table-body-img">
+                            <img class="storage-tabs-like-chart-img" src="../images/chart/IVE Switch.webp"
+                                alt="IVESwitch">
+                            <span>
+                                <div>해야 (HEYA)</div>
+                                <div class="storage-tabs-like-chart-album-name">IVE Switch</div>
+                            </span>
+                        </div>
+                    </td>
+
+                    <td>aespa</td>
+                    <td><i class="fa-solid fa-play"></i></td>
+                    <td><i class="fa-solid fa-list-ul"></i></td>
+                    <td><i class="fa-solid fa-folder-plus"></i></td>
+                    <td><i class="fa-solid fa-ellipsis-vertical"></i></td>
+                </tr>
+            </table>
+        </div> -->
+        <!-- 최근 감상 - 리스트 -->
+        <!-- <div class="storage-tabs-like-list">
+            <div class="storage-tabs-mylist-item">
+                <a href="#">
+                    <img src="../images/chart/Armageddon.webp" alt="Armageddon">
+                </a>
+                <div class="storage-tabs-mylist-item-info">
+                    <a href="#">
+                        <h3 style="font-weight: 600;">재생목록1</h3>
+                    </a>
+                    <a href="#">
+                        <p>만든이</p>
+                    </a>
+                    <a href="#">
+                        <p>10곡</p>
+                    </a>
+                    <br>
+                    <div class="storage-tabs-mylist-item-icons">
+                        <a href="#"><i class="album-icon fas fa-list icon"></i></a>
+                        <a href="#"><i class="album-icon fas fa-folder-plus custom-icon"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="storage-tabs-mylist-item">
+                <a href="#">
+                    <img src="../images/chart/HowSweet.webp" alt="Armageddon">
+                </a>
+                <div class="storage-tabs-mylist-item-info">
+                    <a href="#">
+                        <h3 style="font-weight: 600;">재생목록2</h3>
+                    </a>
+                    <a href="#">
+                        <p>만든이</p>
+                    </a>
+                    <a href="#">
+                        <p>10곡</p>
+                    </a>
+                    <br>
+                    <div class="storage-tabs-mylist-item-icons">
+                        <a href="#"><i class="album-icon fas fa-list icon"></i></a>
+                        <a href="#"><i class="album-icon fas fa-folder-plus custom-icon"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+    </div>
+
+    <br>
+
+    <!-- footer start-->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <div>
+                    <b>고객센터</b>
+                    <a href="#">공지사항</a>
+                </div>
+                <div>
+                    <b>FLO 서비스</b>
+                    <a href="#">서비스 소개</a>
+                    <a href="#">FLO 플레이어 다운로드</a>
+                    <a href="#">FLO 크리에이터 스튜디오</a>
+                </div>
+                <div>
+                    <b>기업 정보</b>
+                    <a href="#">회사소개</a>
+                    <a href="#">인재 채용</a>
+                </div>
+                <div>
+                    <b>문의</b>
+                    <a href="#">마케팅 · 광고 · 제휴 문의</a>
+                    <a href="#">서비스 이용 문의</a>
+                    <a href="#">음원 유통 문의</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>
+                    <a href="#">이용약관</a> |
+                    <a href="#">개인정보 처리방침</a> |
+                    <a href="#">청소년 보호정책</a> |
+                    <a href="#">사업자정보 확인</a>
+                </div>
+                <div>
+                    대표이사: 김동훈 | 사업자 등록번호: 214-86-29288 | 통신판매업 신고번호: 2008-서울서초-1039
+                </div>
+                <div>
+                    서울특별시 서초구 강남대로 311 드림플러스 15F | 1599-6034 | flo@music-flo.com
+                </div>
+                <div>
+                    (주)드림어스컴퍼니 ALL RIGHTS RESERVED
+                </div>
+                <div>
+                    본 사이트는 Chrome 및 Microsoft Edge 브라우저에서 사용 가능합니다.
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-xing"></i></a>
+                </div>
+            </div>
         </div>
-
-        <br>
-
-        <!-- footer start-->
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-links">
-                    <div>
-                        <b>고객센터</b>
-                        <a href="#">공지사항</a>
-                    </div>
-                    <div>
-                        <b>FLO 서비스</b>
-                        <a href="#">서비스 소개</a>
-                        <a href="#">FLO 플레이어 다운로드</a>
-                        <a href="#">FLO 크리에이터 스튜디오</a>
-                    </div>
-                    <div>
-                        <b>기업 정보</b>
-                        <a href="#">회사소개</a>
-                        <a href="#">인재 채용</a>
-                    </div>
-                    <div>
-                        <b>문의</b>
-                        <a href="#">마케팅 · 광고 · 제휴 문의</a>
-                        <a href="#">서비스 이용 문의</a>
-                        <a href="#">음원 유통 문의</a>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <div>
-                        <a href="#">이용약관</a> |
-                        <a href="#">개인정보 처리방침</a> |
-                        <a href="#">청소년 보호정책</a> |
-                        <a href="#">사업자정보 확인</a>
-                    </div>
-                    <div>
-                        대표이사: 김동훈 | 사업자 등록번호: 214-86-29288 | 통신판매업 신고번호: 2008-서울서초-1039
-                    </div>
-                    <div>
-                        서울특별시 서초구 강남대로 311 드림플러스 15F | 1599-6034 | flo@music-flo.com
-                    </div>
-                    <div>
-                        (주)드림어스컴퍼니 ALL RIGHTS RESERVED
-                    </div>
-                    <div>
-                        본 사이트는 Chrome 및 Microsoft Edge 브라우저에서 사용 가능합니다.
-                    </div>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-xing"></i></a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- footer end -->
+    </footer>
+    <!-- footer end -->
 
 </body>
 
