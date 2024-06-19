@@ -54,6 +54,12 @@
         .form-group {
             margin-bottom: 15px;
         }
+        .song-registration-form {
+            border: 2px solid black; /* Add a black border */
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -136,7 +142,24 @@
                         <label>앨범 사진</label>
                         <input type="file" class="form-control-file" id="albumImg" name="albumImg">
                     </div>
+              
 
+                    <div form-group class="mt-1">
+                        <button type="button" class="btn btn-success" onclick="addSongElement()">
+                          곡 추가 +
+                        </button>
+                    </div>
+                    <div class="px-5 mt-5">
+                        <!-- 추가되는 부분 -->
+                        <div id="element-input-box">
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <!-- <button type="button" onclick="saveElement()" class="btn btn-success form-control"
+                                    style="width: 50%">등록하기
+                            </button> -->
+                        </div>
+                    </div>
+        
                     <br>
 
                         <button type="submit" class="btn btn-primary">등록</button>
@@ -150,3 +173,67 @@
 
 </body>
 </html>
+
+<script>
+
+    function addSongElement() {
+        $("#element-input-box").append(makeSongElement());
+    }
+    function makeSongElement() {
+        return `                
+        <div class="song-registration-form">
+                    <form>
+                        <div class="form-group">
+                            <label>노래 제목</label>
+                            <input type="text" class="form-control" id="title" name="title" placeholder="노래 제목 입력">
+                        </div>
+                        <div class="form-group">
+                            <label>노래 가사</label>
+                            <textarea class="form-control" id="lyrics" name="lyrics" rows="4" placeholder="앨범 가사 입력"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="songWriter">작곡가</label>
+                                <input type="text" class="form-control" id="songWriter" name="songWriter" placeholder="작곡가 입력">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="lyricist">작사가</label>
+                                <input type="text" class="form-control" id="lyricist" name="lyricist" placeholder="작사가 입력">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="genre">장르</label>
+                                <select class="form-control" id="genre" name="genre" required>
+                                    <option value="">장르 선택</option>
+                                    <option value="pop">팝</option>
+                                    <option value="rock">락</option>
+                                    <option value="hiphop">힙합</option>
+                                    <option value="jazz">재즈</option>
+                                    <option value="classic">클래식</option>
+                                    <option value="ballade">발라드</option>
+                                    <option value="OST">OST</option>
+                                    <option value="inde">인디</option>
+                                    <option value="trot">트로트</option>
+                                    <option value="jpop">J-POP</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3">
+                            <label for="genre">타이틀곡</label>
+                        <div class="mb-3" style="display: grid; grid-template-columns: 1fr 1fr">
+                            <div style="display: flex; justify-content: center">
+                                <input type="checkbox" name="isTitle" id="isTitle" value='true' required>
+                            </div>
+                        </div>
+                        </div>  
+                        </div>
+ 
+                        <div class="form-group">
+                            <label for="musicVideo">뮤직비디오</label>
+                            <input type="file" class="form-control-file" id="musicVideo" accept="video/*">
+                        </div>
+                        
+`;
+    }
+
+
+
+</script>
