@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <style>
-
         /* 헤더 요소 */
         * {
             margin: 0px;
@@ -31,7 +31,8 @@
             background-size: 100% 100%;
             width: 100%;
             max-width: 1200px;
-            padding: 0 5px; /* 좌우 패딩을 줄임 */
+            padding: 0 5px;
+            /* 좌우 패딩을 줄임 */
         }
 
         .nav-header {
@@ -45,9 +46,11 @@
             align-items: center;
         }
 
-        .nav-links, .auth-links {
+        .nav-links,
+        .auth-links {
             display: flex;
-            gap: 10px; /* 메뉴 항목 사이의 간격 */
+            gap: 10px;
+            /* 메뉴 항목 사이의 간격 */
             align-items: center;
         }
 
@@ -55,13 +58,15 @@
             flex-grow: 1;
             display: flex;
             justify-content: start;
-            margin: 0 10px; /* 검색창과 양쪽 요소 사이의 간격 */
+            margin: 0 10px;
+            /* 검색창과 양쪽 요소 사이의 간격 */
             position: relative;
         }
 
         .search-bar input {
             width: 400px;
-            padding: 8px 12px 8px 40px; /* 왼쪽 패딩을 늘려 아이콘 공간 확보 */
+            padding: 8px 12px 8px 40px;
+            /* 왼쪽 패딩을 늘려 아이콘 공간 확보 */
             border: 1px solid #ccc;
             border-radius: 20px;
             font-size: 14px;
@@ -82,41 +87,50 @@
             font-size: 14px;
             color: #6c757d;
         }
+
         .footer .footer-links {
             display: flex;
             justify-content: space-between;
             margin-bottom: 20px;
         }
+
         .footer .footer-links div {
             flex: 1;
         }
+
         .footer .footer-links div b {
             display: block;
             margin-bottom: 10px;
         }
+
         .footer .footer-links a {
             display: block;
             margin-bottom: 5px;
             color: #6c757d;
         }
+
         .footer .footer-links a:hover {
             text-decoration: underline;
         }
+
         .footer .footer-bottom {
             text-align: center;
             border-top: 1px solid #dee2e6;
             padding-top: 20px;
             margin-top: 20px;
         }
+
         .footer .footer-bottom div {
             margin-bottom: 5px;
         }
+
         .footer .social-icons {
             display: flex;
             justify-content: center;
             gap: 10px;
             margin-top: 10px;
         }
+
         .footer .social-icons a {
             color: #6c757d;
             font-size: 20px;
@@ -141,11 +155,11 @@
             padding-bottom: 10px;
         }
 
-        .storage-tabs-mylist{
+        .storage-tabs-mylist {
             color: #3f3ff5;
         }
 
-        .storage-tabs span{
+        .storage-tabs span {
             position: relative;
             z-index: 1;
         }
@@ -179,7 +193,7 @@
             height: 150px;
             border-radius: 10px;
         }
-        
+
         .storage-tabs-mylist-item a {
             text-decoration: none !important;
             color: black;
@@ -187,7 +201,7 @@
             margin: 0;
             display: block;
         }
-        
+
         .storage-tabs-mylist-item-icons {
             display: flex;
             gap: 10px;
@@ -209,7 +223,7 @@
             align-items: center;
         }
 
-        .storage-tabs-mylist-addlist-button{
+        .storage-tabs-mylist-addlist-button {
             width: 150px;
             height: 150px;
             background-color: #ebebeb;
@@ -227,47 +241,178 @@
             position: absolute;
             background-color: #3f3ff5;
         }
-        
+
         .horizontal-line {
-        top: 50%;
-        left: 25%;
-        width: 50%;
-        height: 2px; /* 원하는 두께 */
-        transform: translateY(-50%);
+            top: 50%;
+            left: 25%;
+            width: 50%;
+            height: 2px;
+            /* 원하는 두께 */
+            transform: translateY(-50%);
         }
 
         .vertical-line {
             top: 25%;
             left: 50%;
-            width: 2px; /* 원하는 두께 */
+            width: 2px;
+            /* 원하는 두께 */
             height: 50%;
             transform: translateX(-50%);
         }
 
-        
+        .storage-tabs-like-chart-main-table {
+            margin-bottom: 40px;
+            width: 100%;
+        }
 
+        .storage-tabs-like-chart-tags {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .storage-tabs-like-chart-tags>ul {
+            margin-top: 20px;
+            display: flex;
+            list-style-type: none;
+            width: 100%;
+            padding: 0%;
+            overflow: hidden;
+        }
+
+        .storage-tabs-like-chart-tags>ul>li {
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 12px;
+            padding-right: 12px;
+            margin-right: 10px;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .storage-tabs-like-chart-playall {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            padding: 15px;
+        }
+
+        .storage-tabs-like-chart-main-table-header {
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            font-size: 13px;
+            width: 100%;
+            color: #cdcdcd;
+        }
+
+        .storage-tabs-like-chart-main-table-header>th {
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        .storage-tabs-like-chart-main-table-body {
+            text-align: center;
+            font-size: 13px;
+            width: 100%;
+        }
+
+        .storage-tabs-like-chart-main-table-body>td {
+            padding: 20px 0;
+            border-bottom: 1px solid #e4e4e4;
+        }
+
+        .storage-tabs-like-chart-main-table-body-img {
+            margin-left: 20px;
+            display: flex;
+            text-align: left;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .storage-tabs-like-chart-album-name {
+            color: #cdcdcd;
+            font-size: 12px;
+        }
+
+        .storage-tabs-like-chart-img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .storage-tabs-like-artists {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .storage-tabs-like-artist-box {
+            text-align: center;
+            position: relative;
+        }
+
+        .storage-tabs-like-artist-box img {
+            border-radius: 50%;
+            width: 180px;
+            height: 180px;
+        }
+
+        .storage-tabs-like-artist-name {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .storage-tabs-like-artist-role {
+            font-size: 14px;
+            color: grey;
+        }
+
+        .storage-tabs-like-artist-img-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .storage-tabs-like-artist-play-button {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: #ffffff;
+            /* white background */
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            color: #000000;
+            /* black color */
+            font-size: 20px;
+            cursor: pointer;
+        }
     </style>
 </head>
+
 <body>
-        <!-- header start -->
+    <!-- header start -->
     <header class="header-main">
         <nav class="nav-header">
             <div class="logo">
                 <a href="/">
-                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                        width="70.5pt" height="52.5pt" viewBox="0 0 94.000000 70.000000"
-                        preserveAspectRatio="xMidYMid meet">
-                        <g transform="translate(0.000000,70.000000) scale(0.100000,-0.100000)"
-                        fill="#000000" stroke="none">
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="70.5pt" height="52.5pt"
+                        viewBox="0 0 94.000000 70.000000" preserveAspectRatio="xMidYMid meet">
+                        <g transform="translate(0.000000,70.000000) scale(0.100000,-0.100000)" fill="#000000"
+                            stroke="none">
                             <path d="M412 333 l3 -108 58 -3 c52 -3 57 -1 57 18 0 17 -6 20 -40 20 l-40 0
-                            0 90 c0 84 -1 90 -20 90 -20 0 -21 -5 -18 -107z"/>
+                            0 90 c0 84 -1 90 -20 90 -20 0 -21 -5 -18 -107z" />
                             <path d="M623 433 c-31 -6 -70 -48 -77 -85 -20 -103 114 -175 189 -101 52 53
                             37 146 -30 177 -33 16 -41 17 -82 9z m55 -39 c32 -9 55 -56 42 -88 -14 -37
-                            -52 -59 -82 -47 -56 21 -68 80 -24 118 30 25 31 25 64 17z"/>
+                            -52 -59 -82 -47 -56 21 -68 80 -24 118 30 25 31 25 64 17z" />
                             <path d="M227 423 c-4 -3 -7 -13 -7 -22 0 -13 13 -16 68 -16 59 0 67 2 70 20
-                            2 18 -4 20 -61 23 -35 1 -66 -1 -70 -5z"/>
+                            2 18 -4 20 -61 23 -35 1 -66 -1 -70 -5z" />
                             <path d="M227 343 c-4 -3 -7 -33 -7 -65 0 -51 2 -58 20 -58 17 0 20 7 20 45
-                            l0 45 48 -3 c40 -2 47 1 50 18 2 18 -4 20 -61 23 -35 1 -66 -1 -70 -5z"/>
+                            l0 45 48 -3 c40 -2 47 1 50 18 2 18 -4 20 -61 23 -35 1 -66 -1 -70 -5z" />
                         </g>
                     </svg>
                 </a>
@@ -296,7 +441,8 @@
             <span class="storage-tabs-latest">최근 감상</span>
             <div class="highlight"></div>
         </div>
-        <div class="storage-tabs-mylist-items">
+        <!-- 내 리스트 -->
+        <!-- <div class="storage-tabs-mylist-items">
             <div class="storage-tabs-mylist-item">
                 <a href="#">
                     <img src="../images/chart/HowSweet.webp" alt="Playlist 2">
@@ -348,66 +494,235 @@
                     새로운 리스트 만들기
                 </div>
             </div>
-        </div>
-    </div>
+        </div> -->
 
-    <br>
+        <!-- 좋아요 -->
+        <!-- 좋아요 - 곡 -->
+        <!-- <div class="storage-tabs-like-chart">
+            <div class="storage-tabs-like-chart-tags">
+                <ul>
+                    <li>곡</li>
+                    <li>앨범</li>
+                    <li>아티스트</li>
+                    <li>리스트</li>
+                </ul>
+            </div>
+            <div class="storage-tabs-like-chart-playall">
+                <div>▷ 전체듣기</div>
+                <div>편집</div>
+            </div>
+            <table class="storage-tabs-like-chart-main-table">
+                <tr class="storage-tabs-like-chart-main-table-header">
+                    <th><input type="checkbox"></th>
+                    <th>곡/앨범</th>
+                    <th>아티스트</th>
+                    <th>듣기</th>
+                    <th>재생목록</th>
+                    <th>내 리스트</th>
+                    <th>더보기</th>
+                </tr>
+                <tr class="storage-tabs-like-chart-main-table-body">
+                    <td><input type="checkbox"></td>
+                    <td>
+                        <div class="storage-tabs-like-chart-main-table-body-img">
+                            <img class="storage-tabs-like-chart-img" src="../images/chart/Armageddon.webp"
+                                alt="Armageddon">
+                            <span>
+                                <div>Supernova</div>
+                                <div class="storage-tabs-like-chart-album-name">Armageddon - The 1st Album</div>
+                            </span>
+                        </div>
+                    </td>
 
-    <!-- footer start-->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-links">
-                <div>
-                    <b>고객센터</b>
-                    <a href="#">공지사항</a>
-                </div>
-                <div>
-                    <b>FLO 서비스</b>
-                    <a href="#">서비스 소개</a>
-                    <a href="#">FLO 플레이어 다운로드</a>
-                    <a href="#">FLO 크리에이터 스튜디오</a>
-                </div>
-                <div>
-                    <b>기업 정보</b>
-                    <a href="#">회사소개</a>
-                    <a href="#">인재 채용</a>
-                </div>
-                <div>
-                    <b>문의</b>
-                    <a href="#">마케팅 · 광고 · 제휴 문의</a>
-                    <a href="#">서비스 이용 문의</a>
-                    <a href="#">음원 유통 문의</a>
+                    <td>aespa</td>
+                    <td><i class="fa-solid fa-play"></i></td>
+                    <td><i class="fa-solid fa-list-ul"></i></td>
+                    <td><i class="fa-solid fa-folder-plus"></i></td>
+                    <td><i class="fa-solid fa-ellipsis-vertical"></i></td>
+                </tr>
+                <tr class="storage-tabs-like-chart-main-table-body">
+                    <td><input type="checkbox"></td>
+                    <td>
+                        <div class="storage-tabs-like-chart-main-table-body-img">
+                            <img class="storage-tabs-like-chart-img" src="../images/chart/HowSweet.webp" alt="HowSweet">
+                            <span>
+                                <div>How Sweet</div>
+                                <div class="storage-tabs-like-chart-album-name">How Sweet</div>
+                            </span>
+                        </div>
+                    </td>
+
+                    <td>NewJeans</td>
+                    <td><i class="fa-solid fa-play"></i></td>
+                    <td><i class="fa-solid fa-list-ul"></i></td>
+                    <td><i class="fa-solid fa-folder-plus"></i></td>
+                    <td><i class="fa-solid fa-ellipsis-vertical"></i></td>
+                </tr>
+                <tr class="storage-tabs-like-chart-main-table-body">
+                    <td><input type="checkbox"></td>
+                    <td>
+                        <div class="storage-tabs-like-chart-main-table-body-img">
+                            <img class="storage-tabs-like-chart-img" src="../images/chart/IVE Switch.webp"
+                                alt="IVESwitch">
+                            <span>
+                                <div>해야 (HEYA)</div>
+                                <div class="storage-tabs-like-chart-album-name">IVE Switch</div>
+                            </span>
+                        </div>
+                    </td>
+
+                    <td>aespa</td>
+                    <td><i class="fa-solid fa-play"></i></td>
+                    <td><i class="fa-solid fa-list-ul"></i></td>
+                    <td><i class="fa-solid fa-folder-plus"></i></td>
+                    <td><i class="fa-solid fa-ellipsis-vertical"></i></td>
+                </tr>
+            </table>
+        </div> -->
+        <!-- 좋아요 - 앨범 -->
+        <!-- <div class="storage-tabs-mylist-items">
+            <div class="storage-tabs-mylist-item">
+                <a href="#">
+                    <img src="../images/chart/HowSweet.webp" alt="HowSweet">
+                </a>
+                <div class="storage-tabs-mylist-item-info">
+                    <a href="#">
+                        <h3 style="font-weight: 600;">HowSweet</h3>
+                    </a>
+                    <a href="#">
+                        <p>NewJeans</p>
+                    </a>
+                    <a href="#">
+                        <p>싱글 | 댄스</p>
+                    </a>
+                    <a href="#">
+                        <p>2024.05.24</p>
+                    </a>
+                    <br>
+                    <div class="storage-tabs-mylist-item-icons">
+                        <a href="#"><i class="album-icon fas fa-list icon"></i></a>
+                        <a href="#"><i class="album-icon fas fa-folder-plus custom-icon"></i></a>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div>
-                    <a href="#">이용약관</a> |
-                    <a href="#">개인정보 처리방침</a> |
-                    <a href="#">청소년 보호정책</a> |
-                    <a href="#">사업자정보 확인</a>
-                </div>
-                <div>
-                    대표이사: 김동훈 | 사업자 등록번호: 214-86-29288 | 통신판매업 신고번호: 2008-서울서초-1039
-                </div>
-                <div>
-                    서울특별시 서초구 강남대로 311 드림플러스 15F | 1599-6034 | flo@music-flo.com
-                </div>
-                <div>
-                    (주)드림어스컴퍼니 ALL RIGHTS RESERVED
-                </div>
-                <div>
-                    본 사이트는 Chrome 및 Microsoft Edge 브라우저에서 사용 가능합니다.
-                </div>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-xing"></i></a>
+            <div class="storage-tabs-mylist-item">
+                <a href="#">
+                    <img src="../images/chart/Armageddon.webp" alt="Armageddon">
+                </a>
+                <div class="storage-tabs-mylist-item-info">
+                    <a href="#">
+                        <h3 style="font-weight: 600;">Armageddon</h3>
+                    </a>
+                    <a href="#">
+                        <p>aespa</p>
+                    </a>
+                    <a href="#">
+                        <p>정규 | 댄스팝</p>
+                    </a>
+                    <a href="#">
+                        <p>2024.05.27</p>
+                    </a>
+                    <br>
+                    <div class="storage-tabs-mylist-item-icons">
+                        <a href="#"><i class="album-icon fas fa-list icon"></i></a>
+                        <a href="#"><i class="album-icon fas fa-folder-plus custom-icon"></i></a>
+                    </div>
                 </div>
             </div>
+        </div> -->
+
+        <!-- 좋아요 - 아티스트 -->
+        <div class="storage-tabs-like-artists">
+            <div class="storage-tabs-like-artist-box">
+                <div class="storage-tabs-like-artist-img-container">
+                    <a href="#">
+                        <img src="../images/search/뉴진스.jpg">
+                        <button class="storage-tabs-like-artist-play-button">▶</button>
+                    </a>
+                </div>
+                <div class="storage-tabs-like-artist-name">NewJeans</div>
+                <div class="storage-tabs-like-artist-role">그룹 | 여성</div>
+            </div>
+            <div class="storage-tabs-like-artist-box">
+                <div class="storage-tabs-like-artist-img-container">
+                    <a href="#">
+                        <img src="../images/search/뉴진스.jpg">
+                        <button class="storage-tabs-like-artist-play-button">▶</button>
+                    </a>
+                </div>
+                <div class="storage-tabs-like-artist-name">NewJeans</div>
+                <div class="storage-tabs-like-artist-role">그룹 | 여성</div>
+            </div>
+            <div class="storage-tabs-like-artist-box">
+                <div class="storage-tabs-like-artist-img-container">
+                    <a href="#">
+                        <img src="../images/search/뉴진스.jpg">
+                        <button class="storage-tabs-like-artist-play-button">▶</button>
+                    </a>
+                </div>
+                <div class="storage-tabs-like-artist-name">NewJeans</div>
+                <div class="storage-tabs-like-artist-role">그룹 | 여성</div>
+            </div>
+
         </div>
-    </footer>
-    <!-- footer end -->
+        <br>
+
+        <!-- footer start-->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-links">
+                    <div>
+                        <b>고객센터</b>
+                        <a href="#">공지사항</a>
+                    </div>
+                    <div>
+                        <b>FLO 서비스</b>
+                        <a href="#">서비스 소개</a>
+                        <a href="#">FLO 플레이어 다운로드</a>
+                        <a href="#">FLO 크리에이터 스튜디오</a>
+                    </div>
+                    <div>
+                        <b>기업 정보</b>
+                        <a href="#">회사소개</a>
+                        <a href="#">인재 채용</a>
+                    </div>
+                    <div>
+                        <b>문의</b>
+                        <a href="#">마케팅 · 광고 · 제휴 문의</a>
+                        <a href="#">서비스 이용 문의</a>
+                        <a href="#">음원 유통 문의</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div>
+                        <a href="#">이용약관</a> |
+                        <a href="#">개인정보 처리방침</a> |
+                        <a href="#">청소년 보호정책</a> |
+                        <a href="#">사업자정보 확인</a>
+                    </div>
+                    <div>
+                        대표이사: 김동훈 | 사업자 등록번호: 214-86-29288 | 통신판매업 신고번호: 2008-서울서초-1039
+                    </div>
+                    <div>
+                        서울특별시 서초구 강남대로 311 드림플러스 15F | 1599-6034 | flo@music-flo.com
+                    </div>
+                    <div>
+                        (주)드림어스컴퍼니 ALL RIGHTS RESERVED
+                    </div>
+                    <div>
+                        본 사이트는 Chrome 및 Microsoft Edge 브라우저에서 사용 가능합니다.
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-xing"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- footer end -->
 
 </body>
+
 </html>
