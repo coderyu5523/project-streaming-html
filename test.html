@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIIZE</title>
+    <style>
+        /* styles.css */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile h1 {
+            margin: 10px 0;
+            font-size: 2em;
+        }
+
+        .profile p {
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .actions button {
+            background-color: #6200ea;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .actions button:hover {
+            background-color: #3700b3;
+        }
+
+        .albums h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .albums button {
+            background-color: #03dac6;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .albums button:hover {
+            background-color: #018786;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        thead {
+            background-color: #f1f1f1;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            font-weight: bold;
+        }
+
+        td img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        td button {
+            background-color: #6200ea;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        td button:hover {
+            background-color: #3700b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="profile">
+            <img src="/images/artist/RIIZE.jpg" alt="RIIZE" class="profile-img">
+            <h1>RIIZE</h1>
+            <p>그룹 | 남성 | 댄스팝</p>
+            <div class="actions">
+                <button>❤️</button>
+                <button>🚫</button>
+                <button>인기곡 듣기</button>
+            </div>
+        </div>
+        <div class="albums">
+            <h2>앨범</h2>
+            <button>전체듣기</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>곡/앨범</th>
+                        <th>아티스트</th>
+                        <th>듣기</th>
+                        <th>재생목록</th>
+                        <th>내 리스트</th>
+                        <th>더보기</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="/images/get_a_guitar.jpg" alt="Get A Guitar"> Get A Guitar</td>
+                        <td>RIIZE</td>
+                        <td><button>▶️</button></td>
+                        <td><button>➕</button></td>
+                        <td><button>📂</button></td>
+                        <td><button>⋮</button></td>
+                    </tr>
+                    <tr>
+                        <td><img src="/images/love_119.jpg" alt="Love 119"> Love 119</td>
+                        <td>RIIZE</td>
+                        <td><button>▶️</button></td>
+                        <td><button>➕</button></td>
+                        <td><button>📂</button></td>
+                        <td><button>⋮</button></td>
+                    </tr>
+                    <tr>
+                        <td><img src="/images/memories.jpg" alt="Memories"> Memories</td>
+                        <td>RIIZE</td>
+                        <td><button>▶️</button></td>
+                        <td><button>➕</button></td>
+                        <td><button>📂</button></td>
+                        <td><button>⋮</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
