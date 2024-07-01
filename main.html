@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Persistent Audio Player</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    #audio-player {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 60px;
+      border: none;
+      background: #f0f0f0;
+    }
+    #content {
+      padding-bottom: 60px; /* 오디오 플레이어의 높이만큼 여백 추가 */
+    }
+  </style>
+</head>
+<body>
+  <iframe id="audio-player" src="player.html"></iframe>
+  
+  <div id="content">
+    <!-- 기본 콘텐츠 로드 -->
+  </div>
+
+  <script>
+    // 콘텐츠 로드를 위한 간단한 예제
+    function loadPage(page) {
+      document.getElementById('content').innerHTML = `<object type="text/html" data="${page}.html" style="width:100%;height:calc(100vh - 60px);"></object>`;
+    }
+
+    // 페이지가 로드될 때 기본 페이지를 로드
+    loadPage('home'); // 기본 페이지
+
+    // 페이지 링크 클릭 시 콘텐츠 로드
+    document.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A' && event.target.dataset.page) {
+        event.preventDefault();
+        loadPage(event.target.dataset.page);
+      }
+    });
+  </script>
+</body>
+</html>

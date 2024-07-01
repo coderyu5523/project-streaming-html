@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <style>
+        body {
+            background-color: #141414;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+        }
+
+        .left-panel {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid #333;
+        }
+
+        .right-panel {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .right-panel h2 {
+            margin-top: 0;
+        }
+
+        .right-panel ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .right-panel li {
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+            display: flex; align-items: center
+        }
+
+        .right-panel li a {
+            color: white;
+            text-decoration: none;
+        }
+        .right-panel li img{
+            margin-right: 10px;
+        }
+
+        .right-panel li a:hover {
+            text-decoration: underline;
+        }
+
+        .album-art {
+            width: 100%;
+            height: 100px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .audio-player {
+            margin-top: 20px;
+        }
+
+        .playlist-img {
+            border-radius: 5px;
+        }
+
+        .footer {
+            padding: 10px;
+            background-color: #1b1b1b;
+            border-top: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer .progress {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .footer .progress span {
+            margin: 0 10px;
+        }
+
+        .footer input[type="range"] {
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        .footer .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .footer .controls button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .footer audio {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="left-panel">
+        <div style="font-size: 20px; font-weight: 600; margin-bottom: 10px">오래된 노래</div>
+        <div style="font-size: 15px; color: gray; margin-bottom: 20px">허각&임한별&이무진&이진성&김희재&안녕 ></div>
+        <img src="sample.jpg" class="playlist-img">
+    </div>
+    <div class="right-panel">
+        <div>
+            <h2>Playlist</h2>
+            <ul>
+                <li class="d-flex">
+                    <img src="sample.jpg" class="playlist-img" style="width: 50px;">
+                    <div>
+                        <a href="#">
+                            <div>오래된 만남</div>
+                            <div>허각&임한별&이무진&이진성&김희재&안녕</div>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <img src="sample.jpg" class="playlist-img" style="width: 50px;">
+                    <a href="#">오래된만남 - 허각&임한별&이무진&이진성&김희재&안녕</a>
+                </li>
+
+                <li>
+                    <img src="sample.jpg" class="playlist-img" style="width: 50px;">
+                    <a href="#">오래된만남 - 허각&임한별&이무진&이진성&김희재&안녕</a>
+                </li>
+
+                <li>
+                    <img src="sample.jpg" class="playlist-img" style="width: 50px;">
+                    <a href="#">오래된만남 - 허각&임한별&이무진&이진성&김희재&안녕</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="footer album-art">
+    <div class="progress">
+        <span id="currentTime">00:00</span>
+        <input type="range" id="progressBar" min="0" max="100" value="0" onchange="seekAudio()">
+        <span id="duration">00:00</span>
+    </div>
+    <div class="controls">
+        <button onclick="playPrevious()">&#9664;&#9664;</button>
+        <button onclick="togglePlayPause()">&#9654;</button>
+        <button onclick="playNext()">&#9654;&#9654;</button>
+    </div>
+    <audio id="audioPlayer">
+        <source src="sample.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+
+<script>
+    const audioPlayer = document.getElementById('audioPlayer');
+    const playPauseButton = document.querySelector('.controls button:nth-child(2)');
+    const progressBar = document.getElementById('progressBar');
+    const currentTimeSpan = document.getElementById('currentTime');
+    const durationSpan = document.getElementById('duration');
+
+    audioPlayer.addEventListener('timeupdate', updateProgress);
+    audioPlayer.addEventListener('loadedmetadata', () => {
+        progressBar.max = audioPlayer.duration;
+        durationSpan.textContent = formatTime(audioPlayer.duration);
+    });
+
+    function togglePlayPause() {
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+            playPauseButton.innerHTML = '&#10074;&#10074;';
+        } else {
+            audioPlayer.pause();
+            playPauseButton.innerHTML = '&#9654;';
+        }
+    }
+
+    function playPrevious() {
+        // Add logic to play the previous song in the playlist
+    }
+
+    function playNext() {
+        // Add logic to play the next song in the playlist
+    }
+
+    function updateProgress() {
+        progressBar.value = audioPlayer.currentTime;
+        currentTimeSpan.textContent = formatTime(audioPlayer.currentTime);
+    }
+
+    function seekAudio() {
+        audioPlayer.currentTime = progressBar.value;
+    }
+
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+</script>
+</body>
+
+</html>

@@ -50,7 +50,7 @@
             background-color: #f9f9f9;
             border-radius: 15px;
             margin: 20px auto;
-            padding: 70px;
+            padding: 20px;
         }
 
         .header {
@@ -69,12 +69,66 @@
         /* 이용권 구매 버튼 스타일 */
         .plan-button {
             background-color: #3f3fff;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        border-radius: 20px;
-        font-size: 16px;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 20px;
+            font-size: 16px;
+        }
+
+        /* 새로 추가한 것들 */
+        .inner-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #525CFC;
+            border-radius: 15px;
+            margin: 20px auto;
+            padding: 20px;
+            width: 80%;
+            color: white;
+            text-align: center;
+        }
+
+        .ticket-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .ticket-header {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 10px;
+            gap: 10px;
+        }
+
+        .ticket-details {
+            display: flex;
+            justify-content: space-around;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .ticket-action {
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .ticket-badge {
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -82,42 +136,58 @@
 <body>
     <div class="tabs">
         <div class="tab active" onclick="activateTab(this)">일반</div>
-        <div class="tab" onclick="activateTab(this)">T혜택</div>
-        <div class="tab" onclick="activateTab(this)">제휴</div>
         <div class="tab" onclick="activateTab(this)">나의 이용권</div>
-        <div class="tab" onclick="activateTab(this)">쿠폰함</div>
     </div>
-</div>
 
-<div class="container my-ticket">
-    <div class="subheader">사용 중인 이용권</div>
-    <div class="content">
-        <div class="header">사용 중인 이용권이 없습니다.</div>
-        <button class="plan-button">이용권 구매</button>
+    <div class="container my-ticket">
+        <div class="subheader">사용 중인 이용권</div>
+        <div class="content">
+            <div class="inner-box">
+                <div class="ticket-box">
+                    <div class="ticket-header">
+                        <div>(첫구매) 무제한 듣기 정기결제 2개월</div>
+                        <div class="ticket-badge">사용 중</div>
+                    </div>
+                    <div class="ticket-details">
+                        <div>이용기간 2022-08-02 ~ 2022-09-01 까지</div>
+                        <div></div>
+                        </div>
+                        <div class="ticket-details">
+                        <div>구매출처 FLO</div>
+                        <div></div>
+                        </div>
+                    </div>
+                    <div class="ticket-details">
+
+                    <div class="ticket-action">환불 요청</div>
+                    </
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 
-<div class="container my-ticket">
-    <div class="subheader">사용 대기 이용권</div>
-    <div class="content">
-        <div class="header">사용 대기 중인 이용권이 없습니다.</div>
+    <div class="container my-ticket">
+        <div class="subheader">사용 중인 이용권</div>
+        <div class="content">
+            <div class="header">사용 중인 이용권이 없습니다.</div>
+            <button class="plan-button">이용권 구매</button>
+        </div>
     </div>
-</div>
 
-<div class="container my-ticket">
-    <div class="subheader">사용 완료된 이용권</div>
-    <div class="content">
-        <div class="header">사용 완료 내역이 없습니다.</div>
+    <div class="container my-ticket">
+        <div class="subheader">사용 완료된 이용권</div>
+        <div class="content">
+            <div class="header">사용 완료 내역이 없습니다.</div>
+        </div>
     </div>
-</div>
 
-<script>
-    function activateTab(tab) {
-        const tabs = document.querySelectorAll('.tab');
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-    }
-</script>
-
+    <script>
+        function activateTab(tab) {
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+        }
+    </script>
 </body>
+
 </html>
